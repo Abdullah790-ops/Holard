@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { CtaBanner } from "@/components/CtaBanner";
 import { TestimonialSlider } from "@/components/TestimonialSlider";
 import { SectionHeading } from "@/components/SectionHeading";
-import { Icon } from "@/components/Icon";
 import { services } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -21,8 +21,9 @@ export default function Services() {
         <div className="container-site space-y-20 lg:space-y-28">
           {services.map((s, i) => (
             <div key={s.slug} className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
-              <div className={`relative grid aspect-[4/3] place-items-center overflow-hidden rounded-3xl bg-[radial-gradient(ellipse_at_70%_20%,_var(--color-navy-3),_var(--color-navy)_72%)] ${i % 2 ? "lg:order-2" : ""}`}>
-                <Icon name={s.icon} className="h-24 w-24 text-white/30" />
+              <div className={`relative aspect-[4/3] overflow-hidden rounded-3xl bg-navy shadow-[0_24px_60px_-32px_rgba(8,24,51,0.55)] ${i % 2 ? "lg:order-2" : ""}`}>
+                {s.image ? <Image src={s.image} alt={`${s.title} team at work`} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition-transform duration-700 hover:scale-[1.03]" /> : <div className="grid h-full place-items-center"><span className="text-6xl font-extrabold text-white/30">0{i + 1}</span></div>}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/20 via-transparent to-white/5" />
               </div>
               <div>
                 <p className="font-heading text-6xl font-extrabold text-orange/25">0{i + 1}</p>
