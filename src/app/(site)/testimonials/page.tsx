@@ -34,7 +34,7 @@ export default async function Testimonials() {
                 <Stars />
                 <blockquote className={`mt-5 font-heading font-semibold leading-snug ${i === 0 ? "text-2xl" : "text-xl"}`}>“{c.quote}”</blockquote>
                 <figcaption className="mt-7 flex items-center gap-3">
-                  <ClientLogo name={c.name} className="h-16 w-28" />
+                  <ClientLogo name={c.name} tone={i === 0 ? "dark" : "light"} className="h-16 w-28" />
                   <div><p className="font-heading font-bold">{c.name}</p><p className={`text-sm ${i === 0 ? "text-white/65" : "text-muted"}`}>{c.role}</p></div>
                 </figcaption>
               </figure>

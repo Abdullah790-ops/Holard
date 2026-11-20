@@ -1,14 +1,14 @@
 import Image from "next/image";
 
 const clientLogos = [
-  { name: "Ceva Logistics", image: "/images/clients/ceva-logistics.webp" },
-  { name: "Duserve Facilities Management", image: "/images/clients/duserve.webp" },
-  { name: "EFS Facilities Services", image: "/images/clients/efs.webp" },
-  { name: "World Star Holding", image: "/images/clients/world-star.webp" },
-  { name: "Adecco", image: "/images/clients/adecco.webp" },
-  { name: "Farnek", image: "/images/clients/farnek.webp" },
-  { name: "IDC Technologies", image: "/images/clients/idc-technologies.webp" },
-  { name: "Marmoom Manpower Supply", image: "/images/clients/marmoom.webp" },
+  { name: "Ceva Logistics", image: "/images/clients/logos/ceva-logistics.png" },
+  { name: "Duserve Facilities Management", image: "/images/clients/logos/duserve.png" },
+  { name: "EFS Facilities Services", image: "/images/clients/logos/efs.png" },
+  { name: "World Star Holding", image: "/images/clients/logos/world-star.png" },
+  { name: "Adecco", image: "/images/clients/logos/adecco.png" },
+  { name: "Farnek", image: "/images/clients/logos/farnek.png" },
+  { name: "IDC Technologies", image: "/images/clients/logos/idc-technologies.png" },
+  { name: "Marmoom Manpower Supply", image: "/images/clients/logos/marmoom.png" },
 ];
 
 export function ClientStrip({ title = "Trusted by enterprise clients across the UAE" }: { title?: string }) {

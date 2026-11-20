@@ -92,9 +92,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <section className="section bg-white">
         <div className="container-site grid gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4"><SectionHeading eyebrow="Service Overview" title={`What ${content.title} means`} sub="A practical service scoped around the roles, people, and outcomes your organisation needs." /></div>
-          <div className="space-y-5 lg:col-span-8">
-            {introParagraphs.map((paragraph, index) => <p key={index} className="lead">{paragraph}</p>)}
-            <p className="rounded-2xl border-l-4 border-orange bg-mist p-5 text-muted"><strong className="text-navy">Who it is for: </strong>{content.audience}</p>
+          <div className="space-y-4 lg:col-span-8">
+            {introParagraphs.map((paragraph, index) => (
+              <p key={index} className={`rounded-2xl border p-5 text-base leading-relaxed sm:p-6 sm:text-lg ${index === 0 ? "border-orange/25 border-l-4 bg-[#fff8f2] text-ink" : "border-navy/10 border-l-4 border-l-navy/50 bg-mist text-muted"}`}>
+                <span className="mb-2 block font-heading text-xs font-bold uppercase tracking-[0.14em] text-orange">{index === 0 ? "Service overview" : "How the support works"}</span>
+                {paragraph}
+              </p>
+            ))}
+            <p className="rounded-2xl border border-orange/20 border-l-4 border-l-orange bg-white p-5 text-muted shadow-sm sm:p-6"><strong className="mb-2 block font-heading text-xs uppercase tracking-[0.14em] text-navy">Who it is for</strong>{content.audience}</p>
           </div>
         </div>
       </section>

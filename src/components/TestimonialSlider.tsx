@@ -25,7 +25,7 @@ export function TestimonialSlider({ count = 6 }: { count?: number }) {
           “{c.quote}”
         </blockquote>
         <figcaption className="mt-10 flex items-center gap-4">
-          <ClientLogo name={c.name} className="h-16 w-28" />
+          <ClientLogo name={c.name} tone="dark" className="h-16 w-28" />
           <div>
             <p className="font-heading text-lg font-bold">{c.name}</p>
             <p className="text-white/65">{c.role} · {c.industry}</p>

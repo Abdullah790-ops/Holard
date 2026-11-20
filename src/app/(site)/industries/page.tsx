@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
@@ -18,8 +19,9 @@ export default function Industries() {
         <div className="container-site grid gap-6 md:grid-cols-2">
           {industries.map((ind, i) => (
             <Link key={ind.slug} href={`/industries/${ind.slug}`} className="group card overflow-hidden transition hover:shadow-2xl">
-              <div className="relative aspect-[16/9] overflow-hidden">
-                <div className="absolute inset-0 grid place-items-center bg-gradient-to-br from-navy-3 to-navy"><span className="font-heading text-3xl font-bold text-white/80">{ind.title}</span></div>
+              <div className="relative aspect-[16/9] overflow-hidden bg-navy">
+                <Image src={ind.image ?? "/images/ind-industrial.jpg"} alt={`${ind.title} workplace`} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent" />
                 {i === 0 && <span className="absolute left-5 top-5 rounded-full bg-orange px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">Main sector</span>}
               </div>
               <div className="flex items-start justify-between gap-6 p-7 lg:p-9">

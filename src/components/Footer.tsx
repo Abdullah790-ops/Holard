@@ -17,13 +17,35 @@ const icons = {
   tiktok: "M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.6 2.6 0 0 1-2.59-2.6 2.6 2.6 0 0 1 3.4-2.47V9.67a5.68 5.68 0 0 0-6.5 5.64A5.7 5.7 0 0 0 9.86 21a5.68 5.68 0 0 0 5.68-5.69V9.01a7.33 7.33 0 0 0 4.29 1.38V7.3s-1.88.09-3.23-1.48z",
 };
 
+const footerServiceLabels: Record<string, string> = {
+  "hr-consulting": "HR Consulting",
+  recruitment: "Recruitment",
+  "manpower-solution": "Manpower Supply",
+  "warehouse-logistics-staffing": "Warehouse Staffing",
+  "construction-contract-staffing": "Construction Staffing",
+  "payroll-hr-outsourcing": "Payroll & HR",
+  "hospitality-staffing": "Hospitality Staffing",
+  "healthcare-staffing": "Healthcare Staffing",
+  "drivers-transport-staffing": "Transport Staffing",
+  "cleaning-facilities-staffing": "Cleaning & Facilities",
+};
+
+const footerIndustryLabels: Record<string, string> = {
+  "warehouse-logistics": "Logistics",
+  "construction-real-estate": "Construction",
+  "hospitality-hotels": "Hospitality",
+  "oil-gas-industrial": "Oil & Gas",
+  healthcare: "Healthcare",
+  "it-technology": "IT & Technology",
+};
+
 export function Footer() {
   const col = "font-heading text-sm font-bold uppercase tracking-[0.16em] text-white";
   const link = "text-white/70 transition hover:text-orange";
   return (
-    <footer className="bg-navy text-white">
-      <div className="container-site grid gap-12 py-16 lg:grid-cols-12 lg:py-20">
-        <div className="lg:col-span-4">
+    <footer className="border-t-4 border-orange bg-navy text-white">
+      <div className="container-site grid gap-12 py-16 lg:grid-cols-12 lg:gap-10 lg:py-20">
+        <div className="lg:col-span-3">
           <Logo light height={72} />
           <p className="mt-6 max-w-sm font-heading text-xl font-semibold leading-snug text-white">{site.tagline}</p>
           <p className="mt-4 max-w-sm text-white/65">Manpower supply, recruitment and HR consulting across the UAE since 2020.</p>
@@ -34,7 +56,7 @@ export function Footer() {
             {site.social.tiktok && <Social href={site.social.tiktok} label="TikTok" d={icons.tiktok} />}
           </div>
         </div>
-        <div className="grid gap-10 sm:grid-cols-3 lg:col-span-5">
+        <div className="grid gap-10 sm:grid-cols-4 lg:col-span-6">
           <div>
             <h3 className={col}>Company</h3>
             <ul className="mt-5 space-y-3">
@@ -49,18 +71,18 @@ export function Footer() {
               <li><Link className={link} href="/book-consultation">Book Consultation</Link></li>
             </ul>
           </div>
-          <div>
+          <div className="sm:col-span-2">
             <h3 className={col}>Services</h3>
-            <ul className="mt-5 space-y-3">
-              {services.map((s) => <li key={s.slug}><Link className={link} href={`/services/${s.slug}`}>{s.title}</Link></li>)}
-              <li><Link className={link} href="/candidates">For Candidates</Link></li>
-              <li><Link className={link} href="/employee-portal">Employee Portal</Link></li>
+            <ul className="mt-5 grid grid-cols-2 gap-x-5 gap-y-3">
+              {services.map((s) => <li key={s.slug}><Link className={`${link} leading-snug`} href={`/services/${s.slug}`}>{footerServiceLabels[s.slug] ?? s.title}</Link></li>)}
+              <li><Link className={`${link} leading-snug`} href="/candidates">For Candidates</Link></li>
+              <li><Link className={`${link} leading-snug`} href="/employee-portal">Employee Portal</Link></li>
             </ul>
           </div>
           <div>
             <h3 className={col}>Industries</h3>
             <ul className="mt-5 space-y-3">
-              {industries.map((s) => <li key={s.slug}><Link className={link} href={`/industries/${s.slug}`}>{s.title}</Link></li>)}
+              {industries.map((s) => <li key={s.slug}><Link className={link} href={`/industries/${s.slug}`}>{footerIndustryLabels[s.slug] ?? s.title}</Link></li>)}
             </ul>
           </div>
         </div>

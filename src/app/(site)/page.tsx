@@ -147,8 +147,8 @@ export default function Home() {
           </div>
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {industries.map((ind) => (
-              <Link key={ind.slug} href={`/industries/${ind.slug}`} className="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-navy-3 to-navy">
-                <div className="absolute inset-0 grid place-items-center"><Icon name={ind.slug === "healthcare" ? "Stethoscope" : ind.slug === "it-technology" ? "Cpu" : "Building2"} className="h-16 w-16 text-white/25" /></div>
+              <Link key={ind.slug} href={`/industries/${ind.slug}`} className="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-navy">
+                <Image src={ind.image ?? "/images/ind-industrial.jpg"} alt={`${ind.title} workplace`} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent transition group-hover:from-navy-2" />
                 <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
                   <div>
