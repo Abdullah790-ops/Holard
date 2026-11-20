@@ -81,7 +81,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
-      <PageHero image={null} eyebrow="Workforce Services" title={content.title} sub={content.subtitle} crumbs={[{ label: "Services", href: "/services" }, { label: content.title }]}>
+      <PageHero image={service.image} eyebrow="Workforce Services" title={content.title} sub={content.subtitle} crumbs={[{ label: "Services", href: "/services" }, { label: content.title }]}>
         <Link href={primaryHref} className="btn btn-primary">{primaryCta}<ArrowRight className="h-5 w-5" aria-hidden /></Link>
         {isRecruitment && <Link href="/candidates#apply" className="btn btn-outline-light">Upload Your CV</Link>}
         {!isRecruitment && content.buttons[1]?.toLowerCase().includes("whatsapp") && site.whatsappHref && (

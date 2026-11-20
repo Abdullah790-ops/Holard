@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, ArrowUpRight, CheckCircle2, Quote } from "lucide-react";
 import { homeFaqs, homeServiceCards, howItWorks, industries, site, whyHolard } from "@/lib/site";
 import { TrustBar } from "@/components/TrustBar";
@@ -25,6 +26,7 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="relative isolate flex min-h-[78svh] items-end overflow-hidden bg-navy text-white">
+        <Image src="/images/provided/home-hero-warehouse.jpg" alt="Warehouse worker wearing high-visibility safety clothing" fill priority sizes="100vw" className="-z-20 object-cover object-center" />
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_78%_18%,_var(--color-navy-3),_var(--color-navy)_58%)]" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
         <div className="container-site w-full pb-12 pt-36 lg:pb-16 lg:pt-44">
@@ -52,8 +54,10 @@ export default function Home() {
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {homeServiceCards.map((s) => (
               <Link key={s.title} href={s.href} className="group card overflow-hidden transition hover:-translate-y-1 hover:border-orange hover:shadow-xl">
-                <div className="relative grid aspect-[16/10] place-items-center overflow-hidden bg-[radial-gradient(ellipse_at_70%_20%,_var(--color-navy-3),_var(--color-navy)_72%)]">
-                  <span className="grid h-20 w-20 place-items-center rounded-2xl border border-white/15 bg-white/5 text-orange"><Icon name={s.icon} className="h-10 w-10" /></span>
+                <div className="relative aspect-[16/10] overflow-hidden bg-navy">
+                  <Image src={s.image} alt={`${s.title} in a UAE workplace`} fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent" />
+                  <span className="absolute bottom-5 left-5 grid h-14 w-14 place-items-center rounded-xl border border-white/20 bg-navy/75 text-orange"><Icon name={s.icon} className="h-8 w-8" /></span>
                   <ArrowUpRight className="absolute right-5 top-5 h-6 w-6 text-white transition group-hover:rotate-45" aria-hidden />
                 </div>
                 <div className="p-7">
@@ -72,8 +76,8 @@ export default function Home() {
         <div className="container-site">
           <SectionHeading eyebrow="Featured Case" title="120 Warehouse Helpers. One Noon Store. 98% Attendance." />
           <div className="mt-14 grid overflow-hidden rounded-3xl bg-navy text-white lg:grid-cols-2">
-            <div className="relative grid min-h-[320px] place-items-center bg-[radial-gradient(ellipse_at_70%_20%,_var(--color-navy-3),_var(--color-navy)_72%)] lg:min-h-[520px]">
-              <Icon name="Warehouse" className="h-24 w-24 text-white/25" />
+            <div className="relative min-h-[320px] overflow-hidden lg:min-h-[520px]">
+              <Image src="/images/provided/home-featured-warehouse-case.jpg" alt="Warehouse aisle with a worker supporting logistics operations" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
             </div>
             <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-16">
               <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-orange">UAE Logistics Client × Noon Store</p>
@@ -89,9 +93,9 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-6 grid gap-6 md:grid-cols-3">
-            {caseStudies.map((c) => (
-              <Link key={c.client} href="/clients#case-studies" className="group relative grid aspect-[4/3] place-items-center overflow-hidden rounded-2xl bg-[radial-gradient(ellipse_at_70%_20%,_var(--color-navy-3),_var(--color-navy)_72%)]">
-                <Icon name={c.tag === "Warehouse" ? "Warehouse" : c.tag === "Facilities" ? "Building2" : "Users"} className="h-16 w-16 text-white/25" />
+            {caseStudies.map((c, index) => (
+              <Link key={c.client} href="/clients#case-studies" className="group relative grid aspect-[4/3] place-items-center overflow-hidden rounded-2xl bg-navy">
+                <Image src={["/images/provided/home-case-construction.jpg", "/images/provided/home-case-facilities.jpg", "/images/provided/home-case-payroll.jpg"][index]} alt={`${c.tag} workforce case study`} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/30 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                   <span className="rounded-full bg-orange px-3 py-1 text-xs font-bold uppercase tracking-wider">{c.tag}</span>
@@ -108,8 +112,8 @@ export default function Home() {
       <section className="section bg-white">
         <div className="container-site grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <div className="relative">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
-              <div className="absolute inset-0 grid place-items-center bg-[radial-gradient(ellipse_at_70%_20%,_var(--color-navy-3),_var(--color-navy)_72%)]"><Icon name="Users" className="h-24 w-24 text-white/25" /></div>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
+              <Image src="/images/provided/home-why-team.jpg" alt="Colleagues meeting to plan workforce support" fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover" />
             </div>
             <div className="absolute -bottom-6 right-4 rounded-2xl bg-orange p-6 text-white shadow-2xl sm:-right-6 lg:p-8">
               <p className="font-heading text-5xl font-extrabold">24h</p>

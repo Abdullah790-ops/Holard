@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { BadgeDollarSign, Bus, Globe2, HeartPulse, Home, MapPin, Plane, Quote, UserRoundCheck, UsersRound } from "lucide-react";
+import { BadgeDollarSign, Bus, Globe2, HeartPulse, Home, MapPin, Plane, Quote, UserRoundCheck } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { LeadForm } from "@/components/LeadForm";
@@ -29,7 +30,7 @@ export default async function Candidates() {
   const jobs = await db.select().from(schema.jobs).where(eq(schema.jobs.isPublished, true)).orderBy(asc(schema.jobs.sortOrder), asc(schema.jobs.createdAt));
   return (
     <>
-      <PageHero image={null} eyebrow="For New Candidates" title="Find your next job in the UAE." sub="Explore open roles and apply directly. We do not charge candidates an application fee." crumbs={[{ label: "For Candidates" }]}>
+      <PageHero image="/images/provided/jobs-candidate.jpg" eyebrow="For New Candidates" title="Find your next job in the UAE." sub="Explore open roles and apply directly. We do not charge candidates an application fee." crumbs={[{ label: "For Candidates" }]}>
         <Link href="#apply" className="btn btn-primary">Apply Now</Link>
         <Link href="#jobs" className="btn btn-outline-light">See Live Jobs</Link>
       </PageHero>
@@ -57,7 +58,7 @@ export default async function Candidates() {
 
       <section className="section bg-mist">
         <div className="container-site grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-          <div className="relative grid aspect-[4/3] place-items-center overflow-hidden rounded-3xl bg-[radial-gradient(ellipse_at_70%_20%,_var(--color-navy-3),_var(--color-navy)_72%)]"><UsersRound className="h-24 w-24 text-white/25" /></div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl"><Image src="/images/provided/jobs-benefits.jpg" alt="Candidate reviewing application details on a laptop" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" /></div>
           <div>
             <SectionHeading eyebrow="Benefits" title="Everything Taken Care Of." />
             <ul className="mt-10 grid grid-cols-2 gap-3 sm:gap-4">

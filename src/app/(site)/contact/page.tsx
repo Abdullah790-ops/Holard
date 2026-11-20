@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { CalendarCheck, Clock, Mail, MapPin, Phone } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
@@ -25,7 +26,7 @@ export default function Contact() {
       <section className="section bg-white">
         <div className="container-site grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <div className="relative grid aspect-[4/3] place-items-center overflow-hidden rounded-3xl bg-[radial-gradient(ellipse_at_70%_20%,_var(--color-navy-3),_var(--color-navy)_72%)]"><MapPin className="h-20 w-20 text-white/25" /></div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl"><Image src="/images/provided/contact-reception.jpg" alt="Reception area at a professional workplace" fill sizes="(max-width: 1024px) 100vw, 42vw" className="object-cover" /></div>
             <ul className="mt-8 space-y-5">
               {info.map(({ icon: I, t, v, href }) => (
                 <li key={t} className="flex gap-4">

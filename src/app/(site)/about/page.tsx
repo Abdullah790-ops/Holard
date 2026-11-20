@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Award, FileText, HandHeart, Handshake, Medal, RefreshCcw, ShieldCheck, Target, UserRound } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -27,7 +28,7 @@ export default function About() {
               <p>Today more than 500 workers support client operations across warehouses, facilities, construction sites, and hotels.</p>
             </div>
           </div>
-          <div className="relative grid aspect-[4/3] place-items-center overflow-hidden rounded-3xl bg-[radial-gradient(ellipse_at_70%_20%,_var(--color-navy-3),_var(--color-navy)_72%)]"><UserRound className="h-24 w-24 text-white/25" /></div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl"><Image src="/images/provided/about-team.jpg" alt="A diverse team standing together in their workplace" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" /></div>
         </div>
         <div className="container-site mt-16">
           <p className="mb-4 font-heading text-lg font-bold text-navy">HOLARD Consulting in numbers</p>
@@ -39,8 +40,9 @@ export default function About() {
       <section className="section bg-mist">
         <div className="container-site">
           <SectionHeading center eyebrow="Vision & Mission" title="Our Purpose & Direction." />
-          <div className="relative mt-12 grid aspect-[21/8] place-items-center overflow-hidden rounded-3xl bg-[radial-gradient(ellipse_at_70%_20%,_var(--color-navy-3),_var(--color-navy)_72%)]">
-            <span className="font-heading text-4xl font-bold text-white/25">Our purpose and direction</span>
+          <div className="relative mt-12 aspect-[21/8] overflow-hidden rounded-3xl">
+            <Image src="/images/provided/about-purpose-team.jpg" alt="Team collaborating on a shared purpose" fill sizes="100vw" className="object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-navy/70 to-transparent" />
           </div>
           <div className="relative -mt-16 grid gap-6 px-4 md:grid-cols-2 lg:-mt-24 lg:px-10">
             {[{ icon: Target, t: "Our Vision", d: vision }, { icon: HandHeart, t: "Our Mission", d: mission }].map(({ icon: I, t, d }) => (

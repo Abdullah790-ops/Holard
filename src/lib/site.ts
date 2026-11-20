@@ -179,11 +179,23 @@ const serviceIcons: Record<string, string> = {
 };
 
 export const services = Object.values(serviceCorrectionCopy).map((copy) => {
+  const servicePhotos: Record<string, string> = {
+    "hr-consulting": "/images/provided/service-hr-consulting.jpg",
+    recruitment: "/images/provided/service-recruitment.jpg",
+    "manpower-solution": "/images/provided/service-manpower.jpg",
+    "warehouse-logistics-staffing": "/images/provided/service-warehouse.jpg",
+    "construction-contract-staffing": "/images/provided/service-construction.jpg",
+    "payroll-hr-outsourcing": "/images/provided/service-payroll.jpg",
+    "hospitality-staffing": "/images/provided/service-hospitality.jpg",
+    "healthcare-staffing": "/images/provided/service-healthcare.jpg",
+    "drivers-transport-staffing": "/images/provided/service-drivers.jpg",
+    "cleaning-facilities-staffing": "/images/provided/service-cleaning.jpg",
+  };
   return {
     slug: copy.slug,
     title: copy.title,
     short: copy.subtitle,
-    image: null as string | null,
+    image: servicePhotos[copy.slug] ?? null,
     icon: serviceIcons[copy.slug] ?? "BadgeCheck",
     metaTitle: `${copy.title} UAE | HOLARD`,
     metaDescription: `${copy.subtitle} Contact our team to discuss your workforce requirements.`,
@@ -197,9 +209,9 @@ export const services = Object.values(serviceCorrectionCopy).map((copy) => {
 });
 
 export const homeServiceCards = [
-  { title: "HR Consulting", short: "Practical HR strategy, audits, policies, and performance systems for your team.", href: "/services/hr-consulting", icon: "ShieldCheck" },
-  { title: "Recruitment", short: "Find and assess the right permanent hire for the role and your organisation.", href: "/services/recruitment", icon: "UserRoundSearch" },
-  { title: "Manpower Solutions", short: "Plan contract teams for site work, operations, and changing workforce demand.", href: "/services/manpower-solution", icon: "HardHat" },
+  { title: "HR Consulting", short: "Practical HR strategy, audits, policies, and performance systems for your team.", href: "/services/hr-consulting", icon: "ShieldCheck", image: "/images/provided/home-hr-consulting-card.jpg" },
+  { title: "Recruitment", short: "Find and assess the right permanent hire for the role and your organisation.", href: "/services/recruitment", icon: "UserRoundSearch", image: "/images/provided/home-recruitment-card.jpg" },
+  { title: "Manpower Solutions", short: "Plan contract teams for site work, operations, and changing workforce demand.", href: "/services/manpower-solution", icon: "HardHat", image: "/images/provided/home-manpower-card.jpg" },
 ] as const;
 
 export const industries = [
@@ -207,7 +219,7 @@ export const industries = [
     slug: "warehouse-logistics",
     title: "Warehouse & Logistics",
     short: "Helpers, pickers, packers and drivers for fulfilment centres and 3PLs.",
-    image: null as string | null,
+    image: "/images/provided/industry-production.jpg",
     clientsLine: "UAE logistics and distribution operators",
     workers: ["Warehouse Helpers", "Pickers & Packers", "Loaders", "Forklift Operators", "Storekeepers", "Drivers"],
     why: [
@@ -224,7 +236,7 @@ export const industries = [
     slug: "construction-real-estate",
     title: "Construction & Real Estate",
     short: "Labourers, masons, steel fixers and skilled trades for active sites.",
-    image: null as string | null,
+    image: "/images/provided/industry-construction.jpg",
     clientsLine: "World Star · Marmoom Manpower",
     workers: ["General Labourers", "Masons", "Steel Fixers", "Carpenters", "Scaffolders", "Helpers"],
     why: [
@@ -258,7 +270,7 @@ export const industries = [
     slug: "oil-gas-industrial",
     title: "Oil & Gas / Industrial",
     short: "Technicians, helpers and skilled trades for plants and industrial sites.",
-    image: null as string | null,
+    image: "/images/provided/industry-industrial.jpg",
     clientsLine: "IDC Technologies",
     workers: ["Technicians", "Electricians", "Welders", "Fitters", "Helpers", "Storekeepers"],
     why: [
@@ -275,7 +287,7 @@ export const industries = [
     slug: "healthcare",
     title: "Healthcare",
     short: "Workforce planning for clinics, hospitals and healthcare support teams.",
-    image: null as string | null,
+    image: "/images/provided/industry-healthcare.jpg",
     clientsLine: "Clinics · hospitals · healthcare groups",
     workers: ["Facilities staff", "Cleaning teams", "Porters", "Reception support", "Stores assistants", "Operations support"],
     why: ["Role and site requirements are discussed before sourcing", "Shift and access needs can be included in the plan", "Responsibilities and service scope are confirmed before start"],
@@ -285,7 +297,7 @@ export const industries = [
     slug: "it-technology",
     title: "IT & Technology",
     short: "Recruitment and workforce support for IT operations and technology teams.",
-    image: null as string | null,
+    image: "/images/provided/industry-it.jpg",
     clientsLine: "Technology teams · IT operations · service desks",
     workers: ["IT support", "Helpdesk staff", "Data entry", "Device deployment", "Technical coordinators", "Operations assistants"],
     why: ["Role requirements are clarified before sourcing", "Candidate experience is matched against the brief", "Interview and onboarding steps are coordinated with your team"],
