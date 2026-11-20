@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone, CalendarCheck, Clock } from "lucide-react";
+import { Mail, MapPin, Phone, CalendarCheck, Clock, MessageCircle } from "lucide-react";
 import { industries, services, site } from "@/lib/site";
 import { Logo } from "./Logo";
 
@@ -28,10 +28,10 @@ export function Footer() {
           <p className="mt-6 max-w-sm font-heading text-xl font-semibold leading-snug text-white">{site.tagline}</p>
           <p className="mt-4 max-w-sm text-white/65">Manpower supply, recruitment and HR consulting across the UAE since 2020.</p>
           <div className="mt-6 flex gap-3">
-            <Social href={site.social.linkedin} label="LinkedIn" d={icons.linkedin} />
-            <Social href={site.social.instagram} label="Instagram" d={icons.instagram} />
-            <Social href={site.social.facebook} label="Facebook" d={icons.facebook} />
-            <Social href={site.social.tiktok} label="TikTok" d={icons.tiktok} />
+            {site.social.linkedin && <Social href={site.social.linkedin} label="LinkedIn" d={icons.linkedin} />}
+            {site.social.instagram && <Social href={site.social.instagram} label="Instagram" d={icons.instagram} />}
+            {site.social.facebook && <Social href={site.social.facebook} label="Facebook" d={icons.facebook} />}
+            {site.social.tiktok && <Social href={site.social.tiktok} label="TikTok" d={icons.tiktok} />}
           </div>
         </div>
         <div className="grid gap-10 sm:grid-cols-3 lg:col-span-5">
@@ -67,7 +67,8 @@ export function Footer() {
         <div className="lg:col-span-3">
           <h3 className={col}>Get in touch</h3>
           <ul className="mt-5 space-y-4 text-white/80">
-            {site.phone && <li className="flex gap-3"><Phone className="mt-1 h-5 w-5 shrink-0 text-orange" aria-hidden /><a href={site.phoneHref ?? undefined} className="hover:text-orange">{site.phone}</a></li>}
+            {site.phone && <li className="flex gap-3"><Phone className="mt-1 h-5 w-5 shrink-0 text-orange" aria-hidden /><a href={site.phoneHref ?? `tel:${site.phone}`} className="hover:text-orange">{site.phone}</a></li>}
+            {site.whatsappHref && <li className="flex gap-3"><MessageCircle className="mt-1 h-5 w-5 shrink-0 text-orange" aria-hidden /><a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="hover:text-orange">WhatsApp</a></li>}
             <li className="flex gap-3"><Mail className="mt-1 h-5 w-5 shrink-0 text-orange" aria-hidden /><a href={`mailto:${site.email}`} className="hover:text-orange">{site.email}</a></li>
             <li className="flex gap-3"><MapPin className="mt-1 h-5 w-5 shrink-0 text-orange" aria-hidden />{site.address}</li>
             <li className="flex gap-3"><Clock className="mt-1 h-5 w-5 shrink-0 text-orange" aria-hidden />{site.hours}</li>

@@ -13,7 +13,7 @@ export default function FaqPage() {
   const jsonLd = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqGroups.flatMap((g) => g.items.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } }))) };
   return (
     <>
-      <PageHero image="/images/about-hero.jpg" eyebrow="FAQ" title="Questions? Answered." sub="For clients, workers and investors." crumbs={[{ label: "FAQ" }]} />
+      <PageHero image={null} eyebrow="FAQ" title="Questions? Answered." sub="For clients, workers and investors." crumbs={[{ label: "FAQ" }]} />
       <section className="section bg-white">
         <div className="container-site">
           <nav aria-label="FAQ sections" className="mb-14 flex flex-wrap gap-3">

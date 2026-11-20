@@ -27,6 +27,7 @@ export function Header() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [open]);
 
   // Transparent over dark heroes; solid once scrolled.
@@ -42,8 +43,10 @@ export function Header() {
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:rounded focus:bg-white focus:px-4 focus:py-2">
         Skip to content
       </a>
-      <div className="mx-auto flex h-20 w-full max-w-[1440px] items-center justify-between gap-4 px-5 md:px-8">
-        <Logo light={!solid} height={58} />
+      <div className="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between gap-3 px-4 sm:h-20 sm:gap-4 sm:px-5 md:px-8">
+        <span className="origin-left scale-[0.72] sm:scale-100">
+          <Logo light={!solid} height={58} />
+        </span>
 
         <nav aria-label="Main" className="hidden min-[1360px]:block">
           <ul className="flex items-center">
@@ -89,19 +92,19 @@ export function Header() {
           </Link>
           <button
             type="button"
-            className={`grid h-11 w-11 place-items-center rounded-lg min-[1360px]:hidden ${solid ? "text-navy" : "text-white"}`}
+            className={`grid h-10 w-10 place-items-center rounded-lg sm:h-11 sm:w-11 min-[1360px]:hidden ${solid ? "text-navy" : "text-white"}`}
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
           >
-            {open ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
+            {open ? <X className="h-6 w-6 sm:h-7 sm:w-7" /> : <Menu className="h-6 w-6 sm:h-7 sm:w-7" />}
           </button>
         </div>
       </div>
 
       {open && (
-        <div id="mobile-menu" className="h-[calc(100dvh-5rem)] overflow-y-auto border-t border-line bg-white min-[1360px]:hidden">
+        <div id="mobile-menu" className="h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line bg-white sm:h-[calc(100dvh-5rem)] min-[1360px]:hidden">
           <nav aria-label="Mobile" className="container-site py-6">
             <ul className="divide-y divide-line">
               {nav.map((item) => (
@@ -133,7 +136,8 @@ export function Header() {
               ))}
             </ul>
             <div className="mt-6 grid gap-3">
-              <Link href="/contact#hire" className="btn btn-primary w-full">Hire Workers</Link>
+              <Link href="/contact#hire" className="btn btn-primary w-full">Hire Talent</Link>
+              <Link href="/candidates#apply" className="btn btn-outline w-full">Find a Job</Link>
               <Link href="/login" className="btn w-full text-navy">Login</Link>
             </div>
           </nav>

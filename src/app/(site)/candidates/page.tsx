@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { BadgeDollarSign, Bus, Globe2, HeartPulse, Home, MapPin, Plane, Quote } from "lucide-react";
+import { BadgeDollarSign, Bus, Globe2, HeartPulse, Home, MapPin, Plane, Quote, UserRoundCheck, UsersRound } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { LeadForm } from "@/components/LeadForm";
@@ -20,6 +19,7 @@ const benefits = [
   { icon: Home, t: "Accommodation", d: "Clean, shared housing." },
   { icon: Bus, t: "Transport", d: "To and from your site." },
   { icon: HeartPulse, t: "Medical", d: "Health insurance included." },
+  { icon: UserRoundCheck, t: "Application Support", d: "Our team guides you through the application process." },
 ];
 
 export const revalidate = 60; // pre-built; refreshed instantly when admin edits jobs, and at least every 60 s
@@ -29,7 +29,7 @@ export default async function Candidates() {
   const jobs = await db.select().from(schema.jobs).where(eq(schema.jobs.isPublished, true)).orderBy(asc(schema.jobs.sortOrder), asc(schema.jobs.createdAt));
   return (
     <>
-      <PageHero image="/images/candidates-hero.jpg" eyebrow="For New Candidates" title="Join 1,000+ Talent Pool. Work With Noon, Farnek, Ceva." sub="Real jobs in the UAE with visa, housing, transport and on-time salary. Holard never charges candidates any fee." crumbs={[{ label: "For Candidates" }]}>
+      <PageHero image={null} eyebrow="For New Candidates" title="Find your next job in the UAE." sub="Explore open roles and apply directly. We do not charge candidates an application fee." crumbs={[{ label: "For Candidates" }]}>
         <Link href="#apply" className="btn btn-primary">Apply Now</Link>
         <Link href="#jobs" className="btn btn-outline-light">See Live Jobs</Link>
       </PageHero>
@@ -57,12 +57,16 @@ export default async function Candidates() {
 
       <section className="section bg-mist">
         <div className="container-site grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl"><Image src="/images/candidates-benefits.jpg" alt="Smiling Holard worker" fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" /></div>
+          <div className="relative grid aspect-[4/3] place-items-center overflow-hidden rounded-3xl bg-[radial-gradient(ellipse_at_70%_20%,_var(--color-navy-3),_var(--color-navy)_72%)]"><UsersRound className="h-24 w-24 text-white/25" /></div>
           <div>
             <SectionHeading eyebrow="Benefits" title="Everything Taken Care Of." />
-            <ul className="mt-10 grid gap-5 sm:grid-cols-2">
+            <ul className="mt-10 grid grid-cols-2 gap-3 sm:gap-4">
               {benefits.map(({ icon: I, t, d }) => (
-                <li key={t} className="flex gap-4"><span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-orange text-white"><I className="h-6 w-6" aria-hidden /></span><div><p className="font-heading text-lg font-bold text-navy">{t}</p><p className="text-muted">{d}</p></div></li>
+                <li key={t} className="rounded-2xl border border-navy/10 bg-white p-4 shadow-sm sm:p-5">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-orange/10 text-orange"><I className="h-5 w-5" aria-hidden /></span>
+                  <p className="mt-3 font-heading text-base font-bold leading-snug text-navy sm:text-lg">{t}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-muted">{d}</p>
+                </li>
               ))}
             </ul>
           </div>
@@ -87,7 +91,7 @@ export default async function Candidates() {
               <figure key={w.name} className="rounded-2xl bg-white p-7">
                 <Quote className="h-8 w-8 text-orange" aria-hidden />
                 <blockquote className="mt-3 text-lg">“{w.quote}”</blockquote>
-                <figcaption className="mt-6 flex items-center gap-4"><Image src={w.photo} alt="" width={56} height={56} className="h-14 w-14 rounded-full object-cover" /><div><p className="font-heading font-bold text-navy">{w.name}</p><p className="text-sm text-muted">{w.role}</p></div></figcaption>
+                <figcaption className="mt-6 flex items-center gap-4"><span className="grid h-14 w-14 place-items-center rounded-full bg-navy font-heading font-bold text-white">{w.name.split(" ").map((part) => part[0]).slice(0,2).join("")}</span><div><p className="font-heading font-bold text-navy">{w.name}</p><p className="text-sm text-muted">{w.role}</p></div></figcaption>
               </figure>
             ))}
           </div>
@@ -97,8 +101,8 @@ export default async function Candidates() {
       <section className="section bg-navy text-white">
         <div className="container-site">
           <SectionHeading light eyebrow="We Recruit From" title="Your Country. Your Opportunity." />
-          <ul className="mt-12 flex flex-wrap gap-3">
-            {countries.map((c) => <li key={c} className="flex items-center gap-2 rounded-full bg-white/10 px-5 py-3 font-heading font-semibold"><Globe2 className="h-5 w-5 text-orange" aria-hidden />{c}</li>)}
+          <ul className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5">
+            {countries.map((c) => <li key={c} className="flex min-h-20 items-center justify-center gap-3 rounded-2xl bg-white/10 px-3 py-4 text-center font-heading text-base font-semibold sm:text-lg"><Globe2 className="h-6 w-6 shrink-0 text-orange" aria-hidden /><span>{c}</span></li>)}
           </ul>
         </div>
       </section>

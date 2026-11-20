@@ -23,7 +23,7 @@ const runRate = workers.map((w) => ({ ...w, value: (w.value * RATE) / 1_000_000 
 export default function Investors() {
   return (
     <>
-      <PageHero image="/images/investor-hero.jpg" eyebrow="Investor Portal" title="Invest In The Workforce Behind UAE's Empire." sub="Recurring monthly revenue. Enterprise clients. A scalable model built on people." crumbs={[{ label: "Investor Portal" }]}>
+      <PageHero image={null} eyebrow="Investor Portal" title="Invest in workforce services across the UAE." sub="Recurring monthly revenue. Enterprise clients. A scalable model built on people." crumbs={[{ label: "Investor Portal" }]}>
         <Link href="#access" className="btn btn-primary">Request Investor Access <ArrowRight className="h-5 w-5" aria-hidden /></Link>
         <Link href="/login" className="btn btn-outline-light"><Lock className="h-5 w-5" aria-hidden /> Investor Login</Link>
       </PageHero>
@@ -35,7 +35,7 @@ export default function Investors() {
             {[
               { icon: CalendarCheck, t: "Since 2020", d: "Six years of operating history in the UAE." },
               { icon: Users, t: "500 Active Workers", d: "Deployed today across enterprise sites." },
-              { icon: Building2, t: "9 Enterprise Clients", d: "Al Wafiq, Farnek, EFS, Ceva and more." },
+              { icon: Building2, t: "9 Enterprise Clients", d: "Logistics, facilities, construction, and service-sector employers." },
               { icon: Repeat, t: "Recurring Monthly Revenue", d: "Clients pay per worker, every month." },
               { icon: TrendingUp, t: "1,000+ Talent Pool", d: "Ready supply to meet new demand fast." },
               { icon: Scaling, t: "Scalable Model", d: "Same platform from 500 to 5,000 workers." },
@@ -64,7 +64,7 @@ export default function Investors() {
             <SectionHeading eyebrow="Business Model" title="How Holard Makes Money." sub="Clients pay one monthly rate per deployed worker. That rate covers salary, visa, housing, transport, medical and our operating margin." />
           </div>
           <div className="rounded-3xl bg-navy p-8 text-white sm:p-12">
-            <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-orange">Example · Al Wafiq</p>
+            <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-orange">Example · UAE Logistics Client</p>
             <div className="mt-8 flex flex-wrap items-baseline gap-x-4 gap-y-2 font-heading text-3xl font-extrabold sm:text-4xl">
               <span>120 helpers</span><span className="text-orange">×</span><span>AED 3,500</span>
             </div>

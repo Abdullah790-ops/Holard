@@ -1,8 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, CheckCircle2, Quote } from "lucide-react";
-import { clients, homeFaqs, howItWorks, industries, services, site, stats, whyHolard } from "@/lib/site";
-import { StatsCounter } from "@/components/StatsCounter";
+import { homeFaqs, homeServiceCards, howItWorks, industries, site, whyHolard } from "@/lib/site";
+import { TrustBar } from "@/components/TrustBar";
 import { ClientStrip } from "@/components/ClientStrip";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Icon } from "@/components/Icon";
@@ -10,38 +9,36 @@ import { TestimonialSlider } from "@/components/TestimonialSlider";
 import { Faq } from "@/components/Faq";
 import { CtaBanner } from "@/components/CtaBanner";
 
+export const metadata = {
+  title: "Manpower, Recruitment & HR Support in the UAE | HOLARD",
+  description: "Manpower supply, recruitment and HR support for logistics, construction, hospitality and other employers across the UAE.",
+};
+
 const caseStudies = [
-  { client: "Al Wafiq", where: "Noon Store, UAE", headline: "120 Warehouse Helpers", img: "/images/case-alwafiq.jpg", tag: "Warehouse" },
-  { client: "Farnek", where: "Multi-site facilities", headline: "24-Hour Replacement", img: "/images/case-farnek.jpg", tag: "Facilities" },
-  { client: "Ceva Logistics", where: "Peak season", headline: "On-Time Peak Staffing", img: "/images/case-ceva.jpg", tag: "Logistics" },
+  { client: "UAE Logistics Client", where: "Noon Store, UAE", headline: "120 Warehouse Helpers", tag: "Warehouse" },
+  { client: "Facilities Client", where: "Multi-site facilities", headline: "24-Hour Replacement", tag: "Facilities" },
+  { client: "Logistics Client", where: "Peak season", headline: "On-Time Peak Staffing", tag: "Logistics" },
 ];
 
 export default function Home() {
-  const alWafiq = clients[0];
   return (
     <>
       {/* HERO */}
-      <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-navy text-white">
-        <video className="absolute inset-0 -z-20 h-full w-full object-cover" autoPlay muted loop playsInline preload="metadata" poster="/images/hero-poster.jpg" aria-hidden>
-          <source src="/video/hero.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-navy via-navy/80 to-navy/40" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy/90 via-navy/50 to-transparent" />
+      <section className="relative isolate flex min-h-[78svh] items-end overflow-hidden bg-navy text-white">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_78%_18%,_var(--color-navy-3),_var(--color-navy)_58%)]" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
         <div className="container-site w-full pb-12 pt-36 lg:pb-16 lg:pt-44">
           <p className="eyebrow fade-up">{site.tagline}</p>
-          <h1 className="h1 fade-up mt-6 max-w-5xl text-white lg:!text-[68px]">
-            We Don&apos;t Just Supply Workers. <span className="text-orange">We Architect The Workforce</span> Behind UAE&apos;s Empire.
-          </h1>
+          <h1 className="h1 fade-up mt-6 max-w-5xl text-white">{site.h1}</h1>
           <p className="fade-up mt-7 max-w-3xl text-lg text-white/80 lg:text-xl">{site.sub}</p>
           <div className="fade-up mt-10 flex flex-col gap-4 sm:flex-row">
-            <Link href="/contact#hire" className="btn btn-primary !min-h-[60px] !px-8 !text-lg">Hire 10–500 Workers <ArrowRight className="h-5 w-5" aria-hidden /></Link>
-            <Link href="/candidates#apply" className="btn btn-outline-light !min-h-[60px] !px-8 !text-lg">Apply For Job</Link>
-          </div>
-          <div className="mt-14 lg:mt-20">
-            <StatsCounter dark items={[stats[1], stats[2], stats[0], { ...stats[3], suffix: "" }]} />
+            <Link href="/contact#hire" className="btn btn-primary min-h-14 w-full px-6 text-base sm:w-auto sm:min-h-[60px] sm:px-8 sm:text-lg">Hire Talent <ArrowRight className="h-5 w-5" aria-hidden /></Link>
+            <Link href="/candidates#apply" className="btn btn-outline-light min-h-14 w-full px-6 text-base sm:w-auto sm:min-h-[60px] sm:px-8 sm:text-lg">Find a Job</Link>
           </div>
         </div>
       </section>
+
+      <TrustBar />
 
       <ClientStrip />
 
@@ -49,19 +46,20 @@ export default function Home() {
       <section className="section bg-white">
         <div className="container-site">
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-            <SectionHeading eyebrow="What We Do" title="Three Ways We Power Your Business." sub="From one HR question to 500 workers on site — one partner, one invoice." />
+            <SectionHeading eyebrow="What We Do" title="Workforce Support, From Hiring Through HR." sub="Choose the support your operation needs, from recruitment to ongoing workforce management." />
             <Link href="/services" className="btn btn-outline shrink-0">All Services <ArrowRight className="h-5 w-5" aria-hidden /></Link>
           </div>
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {services.map((s, i) => (
-              <Link key={s.slug} href={`/services/${s.slug}`} className="group card overflow-hidden transition hover:-translate-y-1 hover:shadow-2xl">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image src={s.image} alt="" fill sizes="(min-width:768px) 33vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105" />
-                  <span className="absolute left-5 top-5 rounded-full bg-white px-3 py-1 font-heading text-sm font-bold text-navy">0{i + 1}</span>
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            {homeServiceCards.map((s) => (
+              <Link key={s.title} href={s.href} className="group card overflow-hidden transition hover:-translate-y-1 hover:border-orange hover:shadow-xl">
+                <div className="relative grid aspect-[16/10] place-items-center overflow-hidden bg-[radial-gradient(ellipse_at_70%_20%,_var(--color-navy-3),_var(--color-navy)_72%)]">
+                  <span className="grid h-20 w-20 place-items-center rounded-2xl border border-white/15 bg-white/5 text-orange"><Icon name={s.icon} className="h-10 w-10" /></span>
+                  <ArrowUpRight className="absolute right-5 top-5 h-6 w-6 text-white transition group-hover:rotate-45" aria-hidden />
                 </div>
-                <div className="p-7 lg:p-8">
-                  <h3 className="h3 flex items-center justify-between text-navy">{s.title}<ArrowUpRight className="h-6 w-6 text-orange transition group-hover:rotate-45" aria-hidden /></h3>
-                  <p className="mt-3 text-muted">{s.short}</p>
+                <div className="p-7">
+                  <h3 className="h3 text-navy">{s.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">{s.short}</p>
+                  <span className="mt-6 inline-flex items-center gap-2 font-heading font-bold text-orange">Explore service <ArrowRight className="h-4 w-4" aria-hidden /></span>
                 </div>
               </Link>
             ))}
@@ -74,26 +72,26 @@ export default function Home() {
         <div className="container-site">
           <SectionHeading eyebrow="Featured Case" title="120 Warehouse Helpers. One Noon Store. 98% Attendance." />
           <div className="mt-14 grid overflow-hidden rounded-3xl bg-navy text-white lg:grid-cols-2">
-            <div className="relative min-h-[320px] lg:min-h-[520px]">
-              <Image src="/images/case-alwafiq.jpg" alt="Warehouse with rows of stock ready for picking" fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
+            <div className="relative grid min-h-[320px] place-items-center bg-[radial-gradient(ellipse_at_70%_20%,_var(--color-navy-3),_var(--color-navy)_72%)] lg:min-h-[520px]">
+              <Icon name="Warehouse" className="h-24 w-24 text-white/25" />
             </div>
             <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-16">
-              <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-orange">Al Wafiq × Noon Store UAE</p>
+              <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-orange">UAE Logistics Client × Noon Store</p>
               <div className="mt-6 grid grid-cols-3 gap-4 border-y border-white/15 py-6">
                 {[["120", "Helpers"], ["98%", "Attendance"], ["48h", "To deploy"]].map(([n, l]) => (
                   <div key={l}><p className="font-heading text-3xl font-extrabold lg:text-4xl">{n}</p><p className="text-sm text-white/65">{l}</p></div>
                 ))}
               </div>
               <Quote className="mt-8 h-10 w-10 text-orange" aria-hidden />
-              <blockquote className="mt-3 font-heading text-2xl font-semibold leading-snug">“{alWafiq.quote}”</blockquote>
-              <p className="mt-5 text-white/65">— {alWafiq.role}, {alWafiq.name}</p>
+              <blockquote className="mt-3 font-heading text-2xl font-semibold leading-snug">“120 warehouse helpers deployed for a Noon store, with 98% daily attendance and clear monthly invoicing.”</blockquote>
+              <p className="mt-5 text-white/65">— Operations Manager, UAE logistics client</p>
               <Link href="/clients#case-studies" className="btn btn-primary mt-9 self-start">Read Case Studies <ArrowRight className="h-5 w-5" aria-hidden /></Link>
             </div>
           </div>
           <div className="mt-6 grid gap-6 md:grid-cols-3">
             {caseStudies.map((c) => (
-              <Link key={c.client} href="/clients#case-studies" className="group relative aspect-[4/3] overflow-hidden rounded-2xl">
-                <Image src={c.img} alt="" fill sizes="(min-width:768px) 33vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105" />
+              <Link key={c.client} href="/clients#case-studies" className="group relative grid aspect-[4/3] place-items-center overflow-hidden rounded-2xl bg-[radial-gradient(ellipse_at_70%_20%,_var(--color-navy-3),_var(--color-navy)_72%)]">
+                <Icon name={c.tag === "Warehouse" ? "Warehouse" : c.tag === "Facilities" ? "Building2" : "Users"} className="h-16 w-16 text-white/25" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/30 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                   <span className="rounded-full bg-orange px-3 py-1 text-xs font-bold uppercase tracking-wider">{c.tag}</span>
@@ -111,7 +109,7 @@ export default function Home() {
         <div className="container-site grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <div className="relative">
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
-              <Image src="/images/why-holard.jpg" alt="Holard technician in a hard hat working on site" fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
+              <div className="absolute inset-0 grid place-items-center bg-[radial-gradient(ellipse_at_70%_20%,_var(--color-navy-3),_var(--color-navy)_72%)]"><Icon name="Users" className="h-24 w-24 text-white/25" /></div>
             </div>
             <div className="absolute -bottom-6 right-4 rounded-2xl bg-orange p-6 text-white shadow-2xl sm:-right-6 lg:p-8">
               <p className="font-heading text-5xl font-extrabold">24h</p>
@@ -142,8 +140,8 @@ export default function Home() {
           </div>
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {industries.map((ind) => (
-              <Link key={ind.slug} href={`/industries/${ind.slug}`} className="group relative aspect-[4/3] overflow-hidden rounded-2xl">
-                <Image src={ind.image} alt="" fill sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105" />
+              <Link key={ind.slug} href={`/industries/${ind.slug}`} className="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-navy-3 to-navy">
+                <div className="absolute inset-0 grid place-items-center"><Icon name={ind.slug === "healthcare" ? "Stethoscope" : ind.slug === "it-technology" ? "Cpu" : "Building2"} className="h-16 w-16 text-white/25" /></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent transition group-hover:from-navy-2" />
                 <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
                   <div>
@@ -172,8 +170,8 @@ export default function Home() {
       {/* HOW IT WORKS */}
       <section className="section bg-mist">
         <div className="container-site">
-          <SectionHeading center eyebrow="How It Works" title="From Request To Payroll In 5 Steps." />
-          <ol className="mt-16 grid gap-6 md:grid-cols-5">
+          <SectionHeading center eyebrow="How It Works" title="From Request to Payroll in 4 Steps." />
+          <ol className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {howItWorks.map((s, i) => (
               <li key={s.t} className="relative rounded-2xl bg-white p-7">
                 <span className="font-heading text-5xl font-extrabold text-orange/90">0{i + 1}</span>

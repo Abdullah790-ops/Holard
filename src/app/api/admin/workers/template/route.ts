@@ -10,7 +10,7 @@ export async function GET() {
   const ws = wb.addWorksheet("Workers", { views: [{ state: "frozen", ySplit: 1 }] });
   ws.columns = IMPORT_COLUMNS.map((c) => ({ header: c.header + ("required" in c && c.required ? " *" : ""), key: c.key, width: Math.max(14, c.header.length + 4) }));
   ws.addRow({
-    fullName: "John Mwangi", nationality: "Kenya", jobTitle: "Warehouse Helper", client: "Al Wafiq", site: "Noon Warehouse",
+    fullName: "John Mwangi", nationality: "Kenya", jobTitle: "Warehouse Helper", client: "Logistics Client", site: "Noon Warehouse",
     phone: "+971501234567", whatsapp: "+971501234567", emergencyName: "Mary Mwangi", emergencyPhone: "+254700000000",
     joiningDate: "2026-01-15", basicSalary: 1600, overtimeRate: 8, status: "active",
     passportNo: "AK1234567", passportExpiry: "2030-05-01", emiratesIdNo: "784-1990-1234567-1", emiratesIdExpiry: "2027-03-10",

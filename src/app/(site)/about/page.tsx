@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Award, FileText, HandHeart, Handshake, Medal, RefreshCcw, ShieldCheck, Target, UserRound } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -17,7 +16,7 @@ const VALUE_ICONS = [Medal, Handshake, RefreshCcw, ShieldCheck];
 export default function About() {
   return (
     <>
-      <PageHero image="/images/about-hero.jpg" eyebrow="About Holard" title="Built In The UAE. Built For The UAE." sub={site.tagline + "."} crumbs={[{ label: "About Us" }]} />
+      <PageHero image={null} eyebrow="About Holard" title="Built In The UAE. Built For The UAE." sub={site.tagline + "."} crumbs={[{ label: "About Us" }]} />
 
       <section className="section bg-white">
         <div className="container-site grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
@@ -25,12 +24,10 @@ export default function About() {
             <SectionHeading eyebrow="Our Story" title="From 8 Workers To 500+." />
             <div className="mt-6 space-y-5 text-lg text-muted">
               <p>HOLARD was founded in 2020 in the UAE by promoters with <strong className="text-ink">10+ years of UAE manpower industry experience</strong> — with one simple promise: treat workers with respect, and deliver for clients every single day.</p>
-              <p>Today more than 500 workers power operations for Al Wafiq, Marmoom, Noon, Farnek, EFS, Ceva and more — across warehouses, facilities, construction sites and hotels.</p>
+              <p>Today more than 500 workers support client operations across warehouses, facilities, construction sites, and hotels.</p>
             </div>
           </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
-            <Image src="/images/about-story.jpg" alt="A team of workers sitting together, arms around each other" fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
-          </div>
+          <div className="relative grid aspect-[4/3] place-items-center overflow-hidden rounded-3xl bg-[radial-gradient(ellipse_at_70%_20%,_var(--color-navy-3),_var(--color-navy)_72%)]"><UserRound className="h-24 w-24 text-white/25" /></div>
         </div>
         <div className="container-site mt-16">
           <p className="mb-4 font-heading text-lg font-bold text-navy">HOLARD Consulting in numbers</p>
@@ -42,14 +39,13 @@ export default function About() {
       <section className="section bg-mist">
         <div className="container-site">
           <SectionHeading center eyebrow="Vision & Mission" title="Our Purpose & Direction." />
-          <div className="relative mt-12 aspect-[21/8] overflow-hidden rounded-3xl">
-            <Image src="/images/dubai-khalifa.jpg" alt="Burj Khalifa and the Dubai skyline" fill sizes="(min-width:1280px) 1216px, 100vw" className="object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
+          <div className="relative mt-12 grid aspect-[21/8] place-items-center overflow-hidden rounded-3xl bg-[radial-gradient(ellipse_at_70%_20%,_var(--color-navy-3),_var(--color-navy)_72%)]">
+            <span className="font-heading text-4xl font-bold text-white/25">Our purpose and direction</span>
           </div>
           <div className="relative -mt-16 grid gap-6 px-4 md:grid-cols-2 lg:-mt-24 lg:px-10">
             {[{ icon: Target, t: "Our Vision", d: vision }, { icon: HandHeart, t: "Our Mission", d: mission }].map(({ icon: I, t, d }) => (
-              <div key={t} className="rounded-3xl border border-line bg-white p-8 text-center shadow-xl lg:p-10">
-                <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-orange text-white"><I className="h-8 w-8" aria-hidden /></span>
+              <div key={t} className="flex flex-col items-end rounded-3xl border border-line bg-white p-8 text-right shadow-xl lg:p-10">
+                <span className="grid h-16 w-16 place-items-center rounded-full bg-orange text-white"><I className="h-8 w-8" aria-hidden /></span>
                 <h2 className="h3 mt-6 text-navy lg:text-[28px]">{t}</h2>
                 <p className="mt-4 text-lg text-muted">{d}</p>
               </div>
@@ -103,16 +99,14 @@ export default function About() {
             {team.map((m) => (
               <figure key={m.name} className="overflow-hidden rounded-3xl bg-white">
                 <div className="relative aspect-[4/5] bg-navy">
-                  {m.photo ? (
-                    <Image src={m.photo} alt={`${m.name}, ${m.role}`} fill sizes="(min-width:1024px) 20vw, (min-width:640px) 50vw, 100vw" className="object-cover" />
-                  ) : (
+                  {
                     // Photo to be supplied — placeholder, not a stock face.
                     <span className="absolute inset-0 grid place-items-center">
                       <span className="grid h-28 w-28 place-items-center rounded-full border-2 border-dashed border-white/30 font-heading text-3xl font-extrabold text-white/80">
                         {m.name.replace(/^(Mr|Ms|Mrs|Dr)\.?\s+/, "").split(" ").map((w) => w[0]).slice(0, 2).join("") || <UserRound className="h-10 w-10" aria-hidden />}
                       </span>
                     </span>
-                  )}
+                  }
                 </div>
                 <figcaption className="p-4 sm:p-5">
                   <p className="font-heading text-base font-bold leading-snug text-navy sm:text-lg">{m.name}</p>
@@ -133,7 +127,7 @@ export default function About() {
               { icon: ShieldCheck, t: "UAE Labour Law", d: "Contracts, leave and gratuity aligned with Federal Labour Law." },
               { icon: Award, t: "WPS Registered", d: "All salaries paid through the Wage Protection System." },
             ].map(({ icon: I, t, d }) => (
-              <div key={t} className="flex gap-5 rounded-2xl border border-line p-7">
+              <div key={t} className="flex gap-5 rounded-2xl border border-[#c6d4e6] p-7">
                 <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-mist text-navy"><I className="h-6 w-6" aria-hidden /></span>
                 <div><h3 className="font-heading text-lg font-bold text-navy">{t}</h3><p className="mt-1 text-muted">{d}</p><p className="mt-3 text-xs font-semibold uppercase tracking-wider text-muted">Certificate copy available on request</p></div>
               </div>

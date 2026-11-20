@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { LoginCard } from "./LoginCard";
-import Image from "next/image";
 import { redirect } from "next/navigation";
 import { getUser, HOME_BY_ROLE } from "@/server/auth";
 import { needsSetup } from "@/server/setup-actions";
@@ -14,9 +13,7 @@ export default async function Login() {
   if (user) redirect(HOME_BY_ROLE[user.role]);
   if (await needsSetup()) redirect("/setup");
   return (
-    <section className="relative isolate flex min-h-[100svh] items-center bg-navy pb-16 pt-28">
-      <Image src="/images/login-bg.jpg" alt="" fill priority sizes="100vw" className="-z-20 object-cover" />
-      <div className="absolute inset-0 -z-10 bg-navy/85" />
+    <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-[radial-gradient(ellipse_at_72%_10%,_var(--color-navy-3),_var(--color-navy)_60%)] pb-16 pt-28">
       <div className="container-site grid items-center gap-12 lg:grid-cols-2">
         <div className="text-white">
           <p className="eyebrow">Holard Portal</p>

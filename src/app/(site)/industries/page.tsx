@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
@@ -7,20 +6,20 @@ import { CtaBanner } from "@/components/CtaBanner";
 import { industries } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Industries | Manpower For Warehouse, Facilities, Construction & More | HOLARD",
-  description: "HOLARD supplies workers to warehouse & logistics, cleaning & facilities, construction, hospitality, oil & gas and retail across the UAE.",
+  title: "Industries | Workforce Support for Six UAE Sectors | HOLARD",
+  description: "HOLARD provides workforce and recruitment support for logistics, construction, hospitality, oil and gas, healthcare, and technology employers across the UAE.",
 };
 
 export default function Industries() {
   return (
     <>
-      <PageHero image="/images/ind-warehouse.jpg" eyebrow="Industries" title="Built For The Sectors That Build The UAE." sub="Six industries. One workforce partner." crumbs={[{ label: "Industries" }]} />
+      <PageHero eyebrow="Industries" title="Workforce support for essential UAE industries." sub="Six sectors. One workforce partner." crumbs={[{ label: "Industries" }]} />
       <section className="section bg-white">
         <div className="container-site grid gap-6 md:grid-cols-2">
           {industries.map((ind, i) => (
             <Link key={ind.slug} href={`/industries/${ind.slug}`} className="group card overflow-hidden transition hover:shadow-2xl">
               <div className="relative aspect-[16/9] overflow-hidden">
-                <Image src={ind.image} alt="" fill sizes="(min-width:768px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 grid place-items-center bg-gradient-to-br from-navy-3 to-navy"><span className="font-heading text-3xl font-bold text-white/80">{ind.title}</span></div>
                 {i === 0 && <span className="absolute left-5 top-5 rounded-full bg-orange px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">Main sector</span>}
               </div>
               <div className="flex items-start justify-between gap-6 p-7 lg:p-9">

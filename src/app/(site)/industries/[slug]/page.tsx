@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, CheckCircle2, Quote, UserCheck } from "lucide-react";
@@ -49,13 +48,12 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
 
       <section className="section bg-mist">
         <div className="container-site grid overflow-hidden rounded-3xl bg-white lg:grid-cols-2">
-          <div className="relative min-h-[300px]"><Image src={ind.image} alt="" fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" /></div>
           <div className="p-8 sm:p-12 lg:p-16">
-            <p className="eyebrow">Client Example</p>
+            <p className="eyebrow">{ind.example.client === "Workforce planning" ? "Workforce Planning" : "Client Example"}</p>
             <h2 className="h3 mt-4 text-navy lg:text-3xl">{ind.example.client}</h2>
-            <Quote className="mt-6 h-10 w-10 text-orange" aria-hidden />
+            {ind.example.client !== "Workforce planning" && <Quote className="mt-6 h-10 w-10 text-orange" aria-hidden />}
             <p className="mt-3 text-xl leading-relaxed text-ink">{ind.example.text}</p>
-            <p className="mt-6 text-sm font-semibold text-muted">Also trusted by: {ind.clientsLine}</p>
+            <p className="mt-6 text-sm font-semibold text-muted">{ind.example.client === "Workforce planning" ? "Common settings:" : "Also trusted by:"} {ind.clientsLine}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               {services.map((s) => <Link key={s.slug} href={`/services/${s.slug}`} className="rounded-full bg-mist px-4 py-2 text-sm font-semibold text-navy hover:bg-navy hover:text-white">{s.title}</Link>)}
             </div>

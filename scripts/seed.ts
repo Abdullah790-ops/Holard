@@ -18,9 +18,9 @@ const JOBS = [
   { title: "Technician (MEP)", salary: "AED 2,200 – 3,000", location: "Dubai", sortOrder: 5 },
 ];
 
-// Demo headcounts from the brief: Al Wafiq 120/120, Farnek 85/90, EFS 60/62, Ceva 45/45, Duserve 40/40 …
+// Demo headcounts from the brief for sample client records.
 const CLIENTS = [
-  { name: "Al Wafiq", short: "AW", industry: "Warehouse & Logistics", contracted: 120, assigned: 120, job: "Warehouse Helper", sites: [["Noon Warehouse", "Dubai", "Dubai South"]] },
+  { name: "Logistics Client", short: "LC", industry: "Warehouse & Logistics", contracted: 120, assigned: 120, job: "Warehouse Helper", sites: [["Noon Warehouse", "Dubai", "Dubai South"]] },
   { name: "Farnek", short: "FN", industry: "Cleaning & Facilities", contracted: 90, assigned: 85, job: "Cleaner", sites: [["Jebel Ali", "Dubai", "JAFZA South"], ["Business Bay Towers", "Dubai", "Business Bay"]] },
   { name: "EFS", short: "EFS", industry: "Cleaning & Facilities", contracted: 62, assigned: 60, job: "Cleaner", sites: [["Khalifa City", "Abu Dhabi", "Khalifa City A"]] },
   { name: "Ceva Logistics", short: "CL", industry: "Warehouse & Logistics", contracted: 45, assigned: 45, job: "Warehouse Helper", sites: [["Ceva Jebel Ali DC", "Dubai", "Jebel Ali"]] },

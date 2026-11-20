@@ -1,28 +1,28 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { CtaBanner } from "@/components/CtaBanner";
 import { TestimonialSlider } from "@/components/TestimonialSlider";
 import { SectionHeading } from "@/components/SectionHeading";
+import { Icon } from "@/components/Icon";
 import { services } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Services | Manpower Supply, Recruitment & HR Consulting UAE | HOLARD",
-  description: "HOLARD services: manpower supply from 50 to 500 workers, recruitment from 10 countries with 48-hour shortlists, and UAE HR consulting.",
+  title: "Services | HR Consulting, Recruitment & Staffing UAE | HOLARD",
+  description: "Explore HR consulting, permanent recruitment, manpower supply, warehouse staffing, construction contracts, payroll, hospitality, healthcare, driver, and facilities staffing.",
 };
 
 export default function Services() {
   return (
     <>
-      <PageHero image="/images/svc-manpower.jpg" eyebrow="Our Services" title="One Partner For Your Entire Workforce." sub="HR consulting, recruitment and full manpower supply — all under one roof, all UAE compliant." crumbs={[{ label: "Services" }]} />
+      <PageHero image={null} eyebrow="Our Services" title="Workforce support for every stage of hiring." sub="Explore HR consulting, recruitment, and contract staffing services shaped around your organisation." crumbs={[{ label: "Services" }]} />
       <section className="section bg-white">
         <div className="container-site space-y-20 lg:space-y-28">
           {services.map((s, i) => (
             <div key={s.slug} className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
-              <div className={`relative aspect-[4/3] overflow-hidden rounded-3xl ${i % 2 ? "lg:order-2" : ""}`}>
-                <Image src={s.image} alt="" fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
+              <div className={`relative grid aspect-[4/3] place-items-center overflow-hidden rounded-3xl bg-[radial-gradient(ellipse_at_70%_20%,_var(--color-navy-3),_var(--color-navy)_72%)] ${i % 2 ? "lg:order-2" : ""}`}>
+                <Icon name={s.icon} className="h-24 w-24 text-white/30" />
               </div>
               <div>
                 <p className="font-heading text-6xl font-extrabold text-orange/25">0{i + 1}</p>

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight, Quote } from "lucide-react";
 import { clients } from "@/lib/site";
-import { ClientMark } from "./ClientMark";
+import { ClientLogo } from "./ClientLogo";
 import { Stars } from "./Stars";
 
 export function TestimonialSlider({ count = 6 }: { count?: number }) {
@@ -25,7 +25,7 @@ export function TestimonialSlider({ count = 6 }: { count?: number }) {
           “{c.quote}”
         </blockquote>
         <figcaption className="mt-10 flex items-center gap-4">
-          <ClientMark short={c.short} size="lg" onDark />
+          <ClientLogo name={c.name} className="h-16 w-28" />
           <div>
             <p className="font-heading text-lg font-bold">{c.name}</p>
             <p className="text-white/65">{c.role} · {c.industry}</p>

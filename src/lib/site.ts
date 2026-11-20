@@ -4,25 +4,28 @@
 // Items marked TODO need real values from Holard before launch.
 // ─────────────────────────────────────────────────────────────
 
+import serviceCorrectionCopy from "./service-correction-copy.json";
+
 export const site = {
   name: "HOLARD",
   legalName: "HOLARD HR",
   certifications: [] as { name: string; number: string }[], // TODO: certification numbers to publish (licence number is NOT published)
   director: "Mr. Ibrahim Abdullah",
-  url: "https://holard.com",
-  tagline: "Architect A Workforce That Powers UAE Empire",
-  h1: "We Don't Just Supply Workers. We Architect The Workforce Behind UAE's Empire.",
-  sub: "Since 2020. 500+ Active Workers. 1,000+ Talent Pool. Trusted By Noon, Farnek, EFS, Ceva & More. Deployment In 48 Hours.",
+  url: "https://holard.vercel.app",
+  tagline: "Workforce solutions for businesses across the UAE",
+  h1: "Manpower and recruitment for UAE logistics, facilities and construction teams.",
+  sub: "Find dependable people for essential operations, with recruitment, contract staffing and HR support from one UAE partner.",
   email: "info@holard.com",
   phone: null as string | null, // TODO: office number (not the director's mobile)
   phoneHref: null as string | null,
+  whatsappHref: null as string | null, // TODO: approved company WhatsApp link
   address: "Salim Al Mazrouye, Dubai, UAE",
   hours: "Mon – Sat, 9 AM – 6 PM",
   social: {
-    linkedin: "https://www.linkedin.com/", // TODO
-    instagram: "https://www.instagram.com/", // TODO
-    facebook: "https://www.facebook.com/", // TODO
-    tiktok: "https://www.tiktok.com/", // TODO
+    linkedin: null as string | null,
+    instagram: null as string | null,
+    facebook: null as string | null,
+    tiktok: null as string | null,
   },
 };
 
@@ -73,8 +76,8 @@ export type Client = {
 
 export const clients: Client[] = [
   {
-    name: "Al Wafiq",
-    short: "AW",
+    name: "UAE Logistics Client",
+    short: "LC",
     industry: "Warehouse & Logistics",
     supplies: "120 warehouse helpers deployed at a Noon store, UAE",
     quote: "Holard supplied 120 warehouse helpers for our Noon store, attendance 98%, invoicing is clear.",
@@ -167,73 +170,36 @@ export const workerTestimonials = [
   },
 ];
 
-export const services = [
-  {
-    slug: "hr-consulting",
-    title: "HR Consulting",
-    short: "Labour law, WPS, visas, contracts and payroll — handled by people who know UAE rules.",
-    image: "/images/svc-hr.jpg",
-    icon: "ShieldCheck",
-    metaTitle: "HR Consulting UAE | Labour Law, WPS & Visa Processing | HOLARD",
-    metaDescription:
-      "UAE HR consulting from HOLARD: labour law compliance, WPS setup, gratuity calculation, employment contracts, visa & labour card processing, HR audits and payroll outsourcing.",
-    h1: "HR Consulting That Keeps Your Business Compliant",
-    intro:
-      "From WPS setup to gratuity calculations, we take the paperwork and the risk off your desk so you can run your business.",
-    items: [
-      { t: "Labour Law Compliance", d: "Policies and practices aligned with UAE Federal Labour Law." },
-      { t: "WPS Setup", d: "Wage Protection System registration, SIF files and monthly runs." },
-      { t: "Gratuity Calculation", d: "Accurate end-of-service calculations under UAE law." },
-      { t: "Employment Contracts", d: "Clear, compliant contracts for every role and nationality." },
-      { t: "Employee Handbook", d: "Rules, leave, conduct and benefits in one clear document." },
-      { t: "Visa & Labour Card Processing", d: "Entry permits, medicals, Emirates ID and labour cards." },
-      { t: "HR Audit", d: "Find gaps in files, contracts and payroll before an inspection does." },
-      { t: "Payroll Outsourcing", d: "Monthly payroll, payslips and WPS — done for you." },
-    ],
-  },
-  {
-    slug: "recruitment",
-    title: "Recruitment",
-    short: "Shortlists in 48 hours from a 1,000+ vetted pool and 10 source countries.",
-    image: "/images/svc-recruitment.jpg",
-    icon: "Users",
-    metaTitle: "Recruitment Agency UAE | Shortlist in 48 Hours | HOLARD",
-    metaDescription:
-      "Recruit warehouse helpers, drivers, cleaners, technicians and office staff in the UAE. HOLARD sources from Kenya, India, Nepal, Philippines and more, with shortlists in 48 hours.",
-    h1: "Recruitment From 10 Countries. Shortlist In 48 Hours.",
-    intro:
-      "Tell us the role. We screen, interview and present a shortlist from our vetted talent pool — then handle medical, visa and deployment.",
-    items: [
-      { t: "Warehouse Helpers", d: "Picking, packing, loading and inventory." },
-      { t: "Drivers", d: "Light & heavy licence holders, delivery riders." },
-      { t: "Cleaners", d: "Commercial, residential and facility cleaning." },
-      { t: "Technicians", d: "MEP, HVAC, electrical and maintenance." },
-      { t: "Warehouse Supervisors", d: "Team leads and storekeepers." },
-      { t: "Office Staff", d: "Admin, reception, data entry and coordinators." },
-    ],
-  },
-  {
-    slug: "manpower-solution",
-    title: "Manpower Solution",
-    short: "One monthly rate per worker. We handle visa, salary, housing, transport and replacement.",
-    image: "/images/svc-manpower.jpg",
-    icon: "HardHat",
-    metaTitle: "Manpower Supply UAE | 50–500 Workers in 48–72 Hours | HOLARD",
-    metaDescription:
-      "Manpower supply in Dubai, Sharjah and across the UAE. Pay per worker per month — HOLARD handles visa, salary, accommodation, transport, medical and 24-hour replacement.",
-    h1: "Manpower Supply. One Rate. Zero Headaches.",
-    intro:
-      "You pay per worker, per month. We handle everything else — visa, salary, accommodation, transport, medical and replacement.",
-    items: [
-      { t: "Warehouse", d: "Helpers, pickers, loaders, forklift operators." },
-      { t: "Construction", d: "Labourers, masons, steel fixers, carpenters." },
-      { t: "Cleaning", d: "Cleaners, janitors, housekeeping." },
-      { t: "Logistics", d: "Drivers, delivery staff, dispatchers." },
-      { t: "Hospitality", d: "Stewards, room attendants, kitchen helpers." },
-      { t: "Drivers", d: "Light, heavy and bus licence holders." },
-      { t: "Facility Management", d: "Technicians, MEP, general maintenance." },
-    ],
-  },
+const serviceIcons: Record<string, string> = {
+  "hr-consulting": "ShieldCheck", recruitment: "UserRoundSearch", "manpower-solution": "HardHat",
+  "warehouse-logistics-staffing": "Warehouse", "construction-contract-staffing": "HardHat",
+  "payroll-hr-outsourcing": "WalletCards", "hospitality-staffing": "Hotel",
+  "healthcare-staffing": "Stethoscope", "drivers-transport-staffing": "MapPin",
+  "cleaning-facilities-staffing": "Sparkles",
+};
+
+export const services = Object.values(serviceCorrectionCopy).map((copy) => {
+  return {
+    slug: copy.slug,
+    title: copy.title,
+    short: copy.subtitle,
+    image: null as string | null,
+    icon: serviceIcons[copy.slug] ?? "BadgeCheck",
+    metaTitle: `${copy.title} UAE | HOLARD`,
+    metaDescription: `${copy.subtitle} Contact our team to discuss your workforce requirements.`,
+    h1: copy.title,
+    intro: copy.subtitle,
+    items: copy.cards.map((card) => ({ t: card.title, d: card.body })),
+  };
+}).sort((a, b) => {
+  const order = ["hr-consulting", "recruitment", "manpower-solution", "warehouse-logistics-staffing", "construction-contract-staffing", "payroll-hr-outsourcing", "hospitality-staffing", "healthcare-staffing", "drivers-transport-staffing", "cleaning-facilities-staffing"];
+  return order.indexOf(a.slug) - order.indexOf(b.slug);
+});
+
+export const homeServiceCards = [
+  { title: "HR Consulting", short: "Practical HR strategy, audits, policies, and performance systems for your team.", href: "/services/hr-consulting", icon: "ShieldCheck" },
+  { title: "Recruitment", short: "Find and assess the right permanent hire for the role and your organisation.", href: "/services/recruitment", icon: "UserRoundSearch" },
+  { title: "Manpower Solutions", short: "Plan contract teams for site work, operations, and changing workforce demand.", href: "/services/manpower-solution", icon: "HardHat" },
 ] as const;
 
 export const industries = [
@@ -241,8 +207,8 @@ export const industries = [
     slug: "warehouse-logistics",
     title: "Warehouse & Logistics",
     short: "Helpers, pickers, packers and drivers for fulfilment centres and 3PLs.",
-    image: "/images/ind-warehouse.jpg",
-    clientsLine: "Al Wafiq · Noon · Ceva Logistics · Adecco",
+    image: null as string | null,
+    clientsLine: "UAE logistics and distribution operators",
     workers: ["Warehouse Helpers", "Pickers & Packers", "Loaders", "Forklift Operators", "Storekeepers", "Drivers"],
     why: [
       "Peak-season scaling: 50–500 workers in 48–72 hours",
@@ -250,32 +216,15 @@ export const industries = [
       "Replacement within 24 hours",
     ],
     example: {
-      client: "Al Wafiq",
+      client: "UAE logistics client",
       text: "120 warehouse helpers deployed at a Noon store in the UAE, with 98% daily attendance and one clear monthly invoice.",
-    },
-  },
-  {
-    slug: "cleaning-facilities",
-    title: "Cleaning & Facilities Management",
-    short: "Cleaners, janitors and facility staff for FM companies and buildings.",
-    image: "/images/ind-cleaning.jpg",
-    clientsLine: "Farnek · EFS · Duserve",
-    workers: ["Cleaners", "Janitors", "Housekeeping", "Helpers", "MEP Technicians", "Supervisors"],
-    why: [
-      "Trained, uniformed and documented staff",
-      "Compliance files ready for your audits",
-      "Fast replacement keeps your SLAs safe",
-    ],
-    example: {
-      client: "Farnek",
-      text: "Facility cleaners and helpers supplied across multiple sites with replacement inside 24 hours.",
     },
   },
   {
     slug: "construction-real-estate",
     title: "Construction & Real Estate",
     short: "Labourers, masons, steel fixers and skilled trades for active sites.",
-    image: "/images/ind-construction.jpg",
+    image: null as string | null,
     clientsLine: "World Star · Marmoom Manpower",
     workers: ["General Labourers", "Masons", "Steel Fixers", "Carpenters", "Scaffolders", "Helpers"],
     why: [
@@ -292,7 +241,7 @@ export const industries = [
     slug: "hospitality-hotels",
     title: "Hospitality & Hotels",
     short: "Stewards, room attendants and kitchen helpers for hotels and events.",
-    image: "/images/ind-hospitality.jpg",
+    image: null as string | null,
     clientsLine: "Hotels · Resorts · Events",
     workers: ["Room Attendants", "Stewards", "Kitchen Helpers", "Waiters", "Laundry Staff", "Event Crew"],
     why: [
@@ -309,7 +258,7 @@ export const industries = [
     slug: "oil-gas-industrial",
     title: "Oil & Gas / Industrial",
     short: "Technicians, helpers and skilled trades for plants and industrial sites.",
-    image: "/images/ind-industrial.jpg",
+    image: null as string | null,
     clientsLine: "IDC Technologies",
     workers: ["Technicians", "Electricians", "Welders", "Fitters", "Helpers", "Storekeepers"],
     why: [
@@ -323,21 +272,24 @@ export const industries = [
     },
   },
   {
-    slug: "retail-offices",
-    title: "Retail & Offices",
-    short: "Merchandisers, cashiers, office boys and admin staff.",
-    image: "/images/ind-retail.jpg",
-    clientsLine: "Retail chains · Corporate offices",
-    workers: ["Merchandisers", "Cashiers", "Sales Helpers", "Office Boys", "Receptionists", "Data Entry"],
-    why: [
-      "Customer-facing staff screened for communication",
-      "Short-term and long-term contracts",
-      "One invoice for every store or office",
-    ],
-    example: {
-      client: "Retail partners",
-      text: "Store helpers and merchandisers supplied for new openings and seasonal sales.",
-    },
+    slug: "healthcare",
+    title: "Healthcare",
+    short: "Workforce planning for clinics, hospitals and healthcare support teams.",
+    image: null as string | null,
+    clientsLine: "Clinics · hospitals · healthcare groups",
+    workers: ["Facilities staff", "Cleaning teams", "Porters", "Reception support", "Stores assistants", "Operations support"],
+    why: ["Role and site requirements are discussed before sourcing", "Shift and access needs can be included in the plan", "Responsibilities and service scope are confirmed before start"],
+    example: { client: "Workforce planning", text: "We review the facility, shifts, access requirements, and role scope before preparing a staffing plan." },
+  },
+  {
+    slug: "it-technology",
+    title: "IT & Technology",
+    short: "Recruitment and workforce support for IT operations and technology teams.",
+    image: null as string | null,
+    clientsLine: "Technology teams · IT operations · service desks",
+    workers: ["IT support", "Helpdesk staff", "Data entry", "Device deployment", "Technical coordinators", "Operations assistants"],
+    why: ["Role requirements are clarified before sourcing", "Candidate experience is matched against the brief", "Interview and onboarding steps are coordinated with your team"],
+    example: { client: "Workforce planning", text: "We align the hiring brief with required skills, work location, schedule, and the team’s selection process." },
   },
 ] as const;
 
@@ -367,8 +319,7 @@ export const howItWorks = [
   { t: "Tell Us Your Need", d: "Role, number of workers, site and start date." },
   { t: "Shortlist in 48H", d: "We present screened candidates from our pool." },
   { t: "Deploy", d: "Workers arrive on site with visa, PPE and transport." },
-  { t: "Approve Attendance", d: "See daily attendance and approve it monthly." },
-  { t: "Pay One Invoice", d: "One clear invoice with attendance sheet attached." },
+  { t: "Review and Pay", d: "Review attendance and receive one clear monthly invoice." },
 ];
 
 export const homeFaqs = [

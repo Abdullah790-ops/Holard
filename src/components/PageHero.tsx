@@ -5,13 +5,13 @@ import { ChevronRight } from "lucide-react";
 export function PageHero({
   eyebrow, title, sub, image, crumbs = [], children,
 }: {
-  eyebrow?: string; title: string; sub?: string; image: string;
+  eyebrow?: string; title: string; sub?: string; image?: string | null;
   crumbs?: { label: string; href?: string }[]; children?: React.ReactNode;
 }) {
   return (
     <section className="relative isolate overflow-hidden bg-navy text-white">
-      <Image src={image} alt="" fill priority sizes="100vw" className="-z-20 object-cover" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy via-navy/90 to-navy/45" />
+      {image && <Image src={image} alt="" fill priority sizes="100vw" className="-z-20 object-cover" />}
+      <div className={`absolute inset-0 -z-10 ${image ? "bg-gradient-to-r from-navy via-navy/90 to-navy/45" : "bg-[radial-gradient(ellipse_at_top_right,_var(--color-navy-3),_var(--color-navy)_65%)]"}`} />
       <div className="container-site pb-20 pt-36 lg:pb-28 lg:pt-48">
         {crumbs.length > 0 && (
           <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-1.5 text-sm text-white/70">

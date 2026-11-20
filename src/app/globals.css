@@ -80,25 +80,25 @@ h4 {
   .h1 {
     font-family: var(--font-heading);
     font-weight: 800;
-    font-size: 38px;
+    font-size: 28px;
     line-height: 1.08;
     letter-spacing: -0.03em;
   }
   @media (min-width: 1024px) {
     .h1 {
-      font-size: 64px;
+      font-size: 40px;
     }
   }
   .h2 {
     font-family: var(--font-heading);
     font-weight: 800;
-    font-size: 32px;
+    font-size: 28px;
     line-height: 1.12;
     letter-spacing: -0.025em;
   }
   @media (min-width: 1024px) {
     .h2 {
-      font-size: 48px;
+      font-size: 40px;
     }
   }
   .h3 {

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { CalendarCheck, Clock, Mail, MapPin, Phone } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
@@ -22,11 +21,11 @@ export default function Contact() {
   ];
   return (
     <>
-      <PageHero image="/images/dubai-burj.jpg" eyebrow="Contact" title="Let's Build Your Workforce." sub="Clients, job seekers and investors — we're one message away." crumbs={[{ label: "Contact" }]} />
+      <PageHero image={null} eyebrow="Contact" title="Let's Build Your Workforce." sub="Clients, job seekers and investors — we're one message away." crumbs={[{ label: "Contact" }]} />
       <section className="section bg-white">
         <div className="container-site grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl"><Image src="/images/contact-side.jpg" alt="" fill sizes="(min-width:1024px) 40vw, 100vw" className="object-cover" /></div>
+            <div className="relative grid aspect-[4/3] place-items-center overflow-hidden rounded-3xl bg-[radial-gradient(ellipse_at_70%_20%,_var(--color-navy-3),_var(--color-navy)_72%)]"><MapPin className="h-20 w-20 text-white/25" /></div>
             <ul className="mt-8 space-y-5">
               {info.map(({ icon: I, t, v, href }) => (
                 <li key={t} className="flex gap-4">
