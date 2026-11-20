@@ -11,7 +11,7 @@ export const site = {
   legalName: "HOLARD HR",
   certifications: [] as { name: string; number: string }[], // TODO: certification numbers to publish (licence number is NOT published)
   director: "Mr. Ibrahim Abdullah",
-  url: "https://holard.vercel.app",
+  url: "https://holardhr.com",
   tagline: "Workforce solutions for businesses across the UAE",
   h1: "Manpower and recruitment for UAE logistics, facilities and construction teams.",
   sub: "Find dependable people for essential operations, with recruitment, contract staffing and HR support from one UAE partner.",
