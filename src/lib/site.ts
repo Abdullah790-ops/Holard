@@ -59,10 +59,10 @@ export const values = [
 
 export const team = [
   { name: "Mr. Ibrahim Abdullah", role: "Director", photo: null as string | null },
-  { name: "Mr. Francis Daddy Lamboi", role: "Data Entry Manager", photo: "/images/team/francis-lamboi.jpg" },
-  { name: "Mr. Thomas Kakpa", role: "Operations Team", photo: "/images/team/thomas-kakpa.jpg" },
-  { name: "Ms. Esther Mutura", role: "Digital Strategist", photo: "/images/team/esther-mutura.jpg" },
-  { name: "Mr. Bockarie Sheku", role: "Data Entry Operator", photo: "/images/team/bockarie-sheku.jpg" },
+  { name: "Mr. Francis Daddy Lamboi", role: "Data Entry Manager", photo: "/images/team/francis-lamboi.png" },
+  { name: "Mr. Thomas Kakpa", role: "Operations Team", photo: "/images/team/thomas-kakpa.png" },
+  { name: "Ms. Esther Mutura", role: "Digital Strategist", photo: "/images/team/esther-mutura.png" },
+  { name: "Mr. Bockarie Sheku", role: "Data Entry Operator", photo: "/images/team/bockarie-sheku.png" },
 ];
 
 export type Client = {

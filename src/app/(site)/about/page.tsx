@@ -101,14 +101,15 @@ export default function About() {
             {team.map((m) => (
               <figure key={m.name} className="overflow-hidden rounded-3xl bg-white">
                 <div className="relative aspect-[4/5] bg-navy">
-                  {
-                    // Photo to be supplied — placeholder, not a stock face.
+                  {m.photo ? (
+                    <Image src={m.photo} alt={`${m.name}, ${m.role}`} fill sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw" className="object-cover object-top" />
+                  ) : (
                     <span className="absolute inset-0 grid place-items-center">
                       <span className="grid h-28 w-28 place-items-center rounded-full border-2 border-dashed border-white/30 font-heading text-3xl font-extrabold text-white/80">
                         {m.name.replace(/^(Mr|Ms|Mrs|Dr)\.?\s+/, "").split(" ").map((w) => w[0]).slice(0, 2).join("") || <UserRound className="h-10 w-10" aria-hidden />}
                       </span>
                     </span>
-                  }
+                  )}
                 </div>
                 <figcaption className="p-4 sm:p-5">
                   <p className="font-heading text-base font-bold leading-snug text-navy sm:text-lg">{m.name}</p>
