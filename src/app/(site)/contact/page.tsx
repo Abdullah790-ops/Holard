@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact HOLARD | Hire Workers in Dubai & Sharjah",
-  description: "Contact HOLARD in Sharjah & Dubai. Call, email info@holard.com or book a consultation. Mon–Sat 9 AM – 6 PM.",
+  description: "Contact HOLARD in Sharjah & Dubai. Call, email info@holardhr.com or book a consultation. Mon–Sat 9 AM – 6 PM.",
 };
 
 export default function Contact() {

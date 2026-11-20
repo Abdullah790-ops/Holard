@@ -15,7 +15,7 @@ export const site = {
   tagline: "Workforce solutions for businesses across the UAE",
   h1: "Manpower and recruitment for UAE logistics, facilities and construction teams.",
   sub: "Find dependable people for essential operations, with recruitment, contract staffing and HR support from one UAE partner.",
-  email: "info@holard.com",
+  email: "info@holardhr.com",
   phone: null as string | null, // TODO: office number (not the director's mobile)
   phoneHref: null as string | null,
   whatsappHref: null as string | null, // TODO: approved company WhatsApp link
