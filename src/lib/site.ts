@@ -180,16 +180,16 @@ const serviceIcons: Record<string, string> = {
 
 export const services = Object.values(serviceCorrectionCopy).map((copy) => {
   const servicePhotos: Record<string, string> = {
-    "hr-consulting": "/images/provided/service-hr-consulting.jpg",
-    recruitment: "/images/provided/service-recruitment.jpg",
-    "manpower-solution": "/images/provided/service-manpower.jpg",
-    "warehouse-logistics-staffing": "/images/provided/service-warehouse.jpg",
-    "construction-contract-staffing": "/images/provided/service-construction.jpg",
-    "payroll-hr-outsourcing": "/images/provided/service-payroll.jpg",
-    "hospitality-staffing": "/images/provided/service-hospitality.jpg",
-    "healthcare-staffing": "/images/provided/service-healthcare.jpg",
-    "drivers-transport-staffing": "/images/provided/service-drivers.jpg",
-    "cleaning-facilities-staffing": "/images/provided/service-cleaning.jpg",
+    "hr-consulting": "/images/provided/service-hr-consulting.webp",
+    recruitment: "/images/provided/service-recruitment.webp",
+    "manpower-solution": "/images/provided/service-manpower.webp",
+    "warehouse-logistics-staffing": "/images/provided/service-warehouse.webp",
+    "construction-contract-staffing": "/images/provided/service-construction.webp",
+    "payroll-hr-outsourcing": "/images/provided/service-payroll.webp",
+    "hospitality-staffing": "/images/provided/service-hospitality.webp",
+    "healthcare-staffing": "/images/provided/service-healthcare.webp",
+    "drivers-transport-staffing": "/images/provided/service-drivers.webp",
+    "cleaning-facilities-staffing": "/images/provided/service-cleaning.webp",
   };
   return {
     slug: copy.slug,

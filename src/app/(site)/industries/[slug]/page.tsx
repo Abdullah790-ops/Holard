@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, CheckCircle2, Quote, UserCheck } from "lucide-react";
+import { ArrowRight, CheckCheck, CheckCircle2, Quote, UserCheck } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { HireSection } from "@/components/HireSection";
@@ -56,6 +56,24 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
             <p className="mt-6 text-sm font-semibold text-muted">{ind.example.client === "Workforce planning" ? "Common settings:" : "Also trusted by:"} {ind.clientsLine}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               {services.map((s) => <Link key={s.slug} href={`/services/${s.slug}`} className="rounded-full bg-mist px-4 py-2 text-sm font-semibold text-navy hover:bg-navy hover:text-white">{s.title}</Link>)}
+            </div>
+          </div>
+          <div className="relative isolate flex min-h-[420px] flex-col justify-between overflow-hidden bg-navy p-8 text-white sm:p-12 lg:p-14">
+            <div className="absolute -right-16 -top-20 -z-10 h-72 w-72 rounded-full border-[48px] border-white/[0.04]" />
+            <div className="absolute -bottom-24 -left-16 -z-10 h-72 w-72 rounded-full bg-orange/15 blur-3xl" />
+            <div>
+              <p className="eyebrow text-orange">On-site deployment</p>
+              <h3 className="mt-4 max-w-md font-heading text-3xl font-extrabold leading-tight sm:text-4xl">A clear plan for every shift.</h3>
+              <p className="mt-4 max-w-md leading-relaxed text-white/70">Roles, attendance, and day-to-day coordination are shaped around the work your site needs done.</p>
+            </div>
+            <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-sm">
+              <div className="flex items-center justify-between gap-3 border-b border-white/10 pb-4">
+                <span className="text-sm font-semibold text-white/70">Workforce scope</span>
+                <span className="rounded-full bg-orange/15 px-3 py-1 text-xs font-bold text-orange">{ind.workers.length} role types</span>
+              </div>
+              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                {ind.workers.slice(0, 4).map((worker) => <li key={worker} className="flex items-center gap-2.5 text-sm font-medium text-white/90"><CheckCheck className="h-4 w-4 shrink-0 text-orange" aria-hidden />{worker}</li>)}
+              </ul>
             </div>
           </div>
         </div>

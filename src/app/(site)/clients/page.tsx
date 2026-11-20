@@ -48,6 +48,19 @@ export default function Clients() {
         </div>
       </section>
 
+      <section className="bg-white pb-16">
+        <div className="container-site">
+          <div className="relative isolate overflow-hidden rounded-3xl bg-navy px-8 py-9 text-white sm:px-12 sm:py-10">
+            <div className="absolute -right-16 -top-24 -z-10 h-72 w-72 rounded-full border-[48px] border-white/[0.04]" />
+            <p className="eyebrow text-orange">Partnership</p>
+            <div className="mt-3 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+              <div><h2 className="font-heading text-2xl font-extrabold sm:text-3xl">Working together with Al Wafiq</h2><p className="mt-2 max-w-2xl text-white/75">A partnership built around dependable workforce support and clear coordination.</p></div>
+              <span className="shrink-0 rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white/80">UAE partnership</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="case-studies" className="section scroll-mt-20 bg-mist">
         <div className="container-site">
           <SectionHeading eyebrow="Case Studies" title="Results That Speak." />
