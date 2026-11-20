@@ -25,6 +25,8 @@ const nextConfig: NextConfig = {
   images: { formats: ["image/avif", "image/webp"] },
   serverExternalPackages: ["@electric-sql/pglite", "exceljs"],
   experimental: {
+    // Keep static generation within the memory available in local and hosted build workers.
+    cpus: 1,
     // Worker forms carry up to 5 scanned documents of 5 MB each; the default 1 MB would reject real scans.
     serverActions: { bodySizeLimit: "26mb" },
   },

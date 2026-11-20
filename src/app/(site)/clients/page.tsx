@@ -30,7 +30,7 @@ const cases = [
 export default function Clients() {
   return (
     <>
-      <PageHero image={null} eyebrow="Our Clients" title="Workforce partners across the UAE." sub="We support logistics, facilities, construction, and other employers with practical staffing services." crumbs={[{ label: "Our Clients" }]} />
+      <PageHero image="/images/dubai-burj.jpg" eyebrow="Our Clients" title="Workforce partners across the UAE." sub="We support logistics, facilities, construction, and other employers with practical staffing services." crumbs={[{ label: "Our Clients" }]} />
       <section className="section bg-white">
         <div className="container-site">
           <SectionHeading eyebrow="Client Portfolio" title="Who We Work With." />

@@ -137,7 +137,6 @@ export function Header() {
             </ul>
             <div className="mt-6 grid gap-3">
               <Link href="/contact#hire" className="btn btn-primary w-full">Hire Talent</Link>
-              <Link href="/candidates#apply" className="btn btn-outline w-full">Find a Job</Link>
               <Link href="/login" className="btn w-full text-navy">Login</Link>
             </div>
           </nav>

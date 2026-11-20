@@ -18,7 +18,7 @@ const steps = [
 export default function BookConsultation() {
   return (
     <>
-      <PageHero image={null} eyebrow="Book a Consultation" title="Let's Plan Your Workforce Together." sub="Free, no-obligation consultation about manpower supply, recruitment or HR consulting." crumbs={[{ label: "Book a Consultation" }]} />
+      <PageHero image="/images/about-story.jpg" eyebrow="Book a Consultation" title="Let's Plan Your Workforce Together." sub="Free, no-obligation consultation about manpower supply, recruitment or HR consulting." crumbs={[{ label: "Book a Consultation" }]} />
       <section className="section bg-white">
         <div className="container-site grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">

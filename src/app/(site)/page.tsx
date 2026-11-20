@@ -26,10 +26,13 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="relative isolate flex min-h-[78svh] items-end overflow-hidden bg-navy text-white">
-        <Image src="/images/provided/home-hero-warehouse.jpg" alt="Warehouse worker wearing high-visibility safety clothing" fill priority sizes="100vw" className="-z-20 object-cover object-center" />
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_78%_18%,_var(--color-navy-3),_var(--color-navy)_58%)]" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
-        <div className="container-site w-full pb-12 pt-36 lg:pb-16 lg:pt-44">
+        <video aria-hidden="true" autoPlay muted loop playsInline preload="metadata" poster="/images/hero-poster.jpg" className="absolute inset-0 z-0 size-full object-cover motion-reduce:hidden">
+          <source src="/video/hero.mp4" type="video/mp4" />
+        </video>
+        <Image src="/images/hero-poster.jpg" alt="Construction team reviewing a worksite" fill priority sizes="100vw" className="absolute inset-0 z-0 hidden object-cover motion-reduce:block" />
+        <div className="absolute inset-0 z-10 bg-[radial-gradient(ellipse_at_78%_18%,_var(--color-navy-3)_0%,_transparent_68%)]" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-navy/95 via-navy/55 to-navy/35" />
+        <div className="container-site relative z-20 w-full pb-12 pt-36 lg:pb-16 lg:pt-44">
           <p className="eyebrow fade-up">{site.tagline}</p>
           <h1 className="h1 fade-up mt-6 max-w-5xl text-white">{site.h1}</h1>
           <p className="fade-up mt-7 max-w-3xl text-lg text-white/80 lg:text-xl">{site.sub}</p>

@@ -24,7 +24,7 @@ export default async function Testimonials() {
     .orderBy(desc(schema.enquiries.createdAt)).limit(12);
   return (
     <>
-      <PageHero image={null} eyebrow="Testimonials" title="Hear from clients and workers." sub="Feedback from the teams and people who work with us." crumbs={[{ label: "Testimonials" }]} />
+      <PageHero image="/images/why-holard.jpg" eyebrow="Testimonials" title="Hear from clients and workers." sub="Feedback from the teams and people who work with us." crumbs={[{ label: "Testimonials" }]} />
       <section className="section bg-white">
         <div className="container-site">
           <SectionHeading eyebrow="Clients" title="Enterprise Clients." />

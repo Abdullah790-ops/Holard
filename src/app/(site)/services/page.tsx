@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function Services() {
   return (
     <>
-      <PageHero image={null} eyebrow="Our Services" title="Workforce support for every stage of hiring." sub="Explore HR consulting, recruitment, and contract staffing services shaped around your organisation." crumbs={[{ label: "Services" }]} />
+      <PageHero image="/images/svc-manpower.jpg" eyebrow="Our Services" title="Workforce support for every stage of hiring." sub="Explore HR consulting, recruitment, and contract staffing services shaped around your organisation." crumbs={[{ label: "Services" }]} />
       <section className="section bg-white">
         <div className="container-site space-y-20 lg:space-y-28">
           {services.map((s, i) => (

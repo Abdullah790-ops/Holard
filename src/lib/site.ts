@@ -253,7 +253,7 @@ export const industries = [
     slug: "hospitality-hotels",
     title: "Hospitality & Hotels",
     short: "Stewards, room attendants and kitchen helpers for hotels and events.",
-    image: null as string | null,
+    image: "/images/ind-hospitality.jpg",
     clientsLine: "Hotels · Resorts · Events",
     workers: ["Room Attendants", "Stewards", "Kitchen Helpers", "Waiters", "Laundry Staff", "Event Crew"],
     why: [

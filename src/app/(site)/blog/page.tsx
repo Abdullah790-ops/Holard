@@ -14,7 +14,7 @@ const fmt = (d: string) => new Date(d).toLocaleDateString("en-GB", { day: "numer
 export default function Blog() {
   return (
     <>
-      <PageHero image={null} eyebrow="Blog & News" title="Insights For UAE Employers." sub="Hiring guides, labour law updates and workforce tips." crumbs={[{ label: "Blog" }]} />
+      <PageHero image="/images/face-worker-2.jpg" eyebrow="Blog & News" title="Insights For UAE Employers." sub="Hiring guides, labour law updates and workforce tips." crumbs={[{ label: "Blog" }]} />
       <section className="section bg-white">
         <div className="container-site grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {blogPosts.map((p) => (

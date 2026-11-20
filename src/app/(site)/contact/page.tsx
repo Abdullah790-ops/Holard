@@ -22,7 +22,7 @@ export default function Contact() {
   ];
   return (
     <>
-      <PageHero image={null} eyebrow="Contact" title="Let's Build Your Workforce." sub="Clients, job seekers and investors — we're one message away." crumbs={[{ label: "Contact" }]} />
+      <PageHero image="/images/contact-side.jpg" eyebrow="Contact" title="Let's Build Your Workforce." sub="Clients, job seekers and investors — we're one message away." crumbs={[{ label: "Contact" }]} />
       <section className="section bg-white">
         <div className="container-site grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">

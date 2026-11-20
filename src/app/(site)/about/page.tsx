@@ -17,7 +17,7 @@ const VALUE_ICONS = [Medal, Handshake, RefreshCcw, ShieldCheck];
 export default function About() {
   return (
     <>
-      <PageHero image={null} eyebrow="About Holard" title="Built In The UAE. Built For The UAE." sub={site.tagline + "."} crumbs={[{ label: "About Us" }]} />
+      <PageHero image="/images/about-hero.jpg" eyebrow="About Holard" title="Built In The UAE. Built For The UAE." sub={site.tagline + "."} crumbs={[{ label: "About Us" }]} />
 
       <section className="section bg-white">
         <div className="container-site grid items-center gap-14 lg:grid-cols-2 lg:gap-20">

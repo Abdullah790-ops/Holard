@@ -20,10 +20,10 @@ const roles = [
 export default function Careers() {
   return (
     <>
-      <PageHero image={null} eyebrow="Careers" title="Build The Company That Builds The UAE." sub="Office roles at Holard. Looking for a worker job? Visit our For Candidates page." crumbs={[{ label: "Careers" }]}>
+      <PageHero image="/images/provided/industry-administration.jpg" eyebrow="Careers" title="Build The Company That Builds The UAE." sub="Office roles at Holard. Looking for a worker job? Visit our For Candidates page." crumbs={[{ label: "Careers" }]}>
         <Link href="/candidates" className="btn btn-outline-light">Worker jobs →</Link>
       </PageHero>
-      <MediaSplit image={null} alt="Office team photo awaiting approved original">
+      <MediaSplit image="/images/careers.jpg" alt="Colleagues working together in an office">
         <SectionHeading eyebrow="Why Join" title="Fast Growth. Real Impact." sub="We're scaling from 500 to 2,000 workers. Every person in our office directly shapes how hundreds of workers and enterprise clients experience Holard." />
       </MediaSplit>
       <section className="section bg-mist">

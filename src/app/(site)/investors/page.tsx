@@ -23,7 +23,7 @@ const runRate = workers.map((w) => ({ ...w, value: (w.value * RATE) / 1_000_000 
 export default function Investors() {
   return (
     <>
-      <PageHero image={null} eyebrow="Investor Portal" title="Invest in workforce services across the UAE." sub="Recurring monthly revenue. Enterprise clients. A scalable model built on people." crumbs={[{ label: "Investor Portal" }]}>
+      <PageHero image="/images/investor-hero.jpg" eyebrow="Investor Portal" title="Invest in workforce services across the UAE." sub="Recurring monthly revenue. Enterprise clients. A scalable model built on people." crumbs={[{ label: "Investor Portal" }]}>
         <Link href="#access" className="btn btn-primary">Request Investor Access <ArrowRight className="h-5 w-5" aria-hidden /></Link>
         <Link href="/login" className="btn btn-outline-light"><Lock className="h-5 w-5" aria-hidden /> Investor Login</Link>
       </PageHero>

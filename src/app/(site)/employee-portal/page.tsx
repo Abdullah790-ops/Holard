@@ -17,7 +17,7 @@ export default function EmployeePortal() {
   ];
   return (
     <>
-      <PageHero image={null} eyebrow="Employee Portal" title="Your Job. Your Salary. In Your Pocket." sub="Every Holard worker gets a private login. You only ever see your own data." crumbs={[{ label: "Employee Portal" }]}>
+      <PageHero image="/images/login-bg.jpg" eyebrow="Employee Portal" title="Your Job. Your Salary. In Your Pocket." sub="Every Holard worker gets a private login. You only ever see your own data." crumbs={[{ label: "Employee Portal" }]}>
         <Link href="/login" className="btn btn-primary">Employee Login</Link>
       </PageHero>
       <section className="section bg-white">
