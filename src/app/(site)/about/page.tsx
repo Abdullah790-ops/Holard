@@ -46,7 +46,7 @@ export default function About() {
           </div>
           <div className="relative -mt-16 grid gap-6 px-4 md:grid-cols-2 lg:-mt-24 lg:px-10">
             {[{ icon: Target, t: "Our Vision", d: vision }, { icon: HandHeart, t: "Our Mission", d: mission }].map(({ icon: I, t, d }) => (
-              <div key={t} className="flex flex-col items-end rounded-3xl border border-line bg-white p-8 text-right shadow-xl lg:p-10">
+              <div key={t} className="flex flex-col items-start rounded-3xl border border-line bg-white p-8 text-left shadow-xl lg:p-10">
                 <span className="grid h-16 w-16 place-items-center rounded-full bg-orange text-white"><I className="h-8 w-8" aria-hidden /></span>
                 <h2 className="h3 mt-6 text-navy lg:text-[28px]">{t}</h2>
                 <p className="mt-4 text-lg text-muted">{d}</p>
