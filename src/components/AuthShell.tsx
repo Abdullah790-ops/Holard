@@ -25,8 +25,8 @@ export function BareAuthShell({ title, sub, children }: { title: string; sub?: s
           <div className="absolute -right-24 top-20 -z-10 h-80 w-80 rounded-full border-[56px] border-white/[0.04]" />
           <div className="absolute -bottom-24 -left-16 -z-10 h-72 w-72 rounded-full bg-orange/20 blur-3xl" />
           <div>
-            <div className="inline-flex rounded-xl bg-white p-2.5"><Logo height={40} /></div>
-            <p className="eyebrow mt-14 text-orange">One-time secure setup</p>
+            <div className="mb-12"><Logo light height={48} /></div>
+            <p className="eyebrow text-orange">One-time secure setup</p>
             <h2 className="mt-4 max-w-md font-heading text-3xl font-extrabold leading-tight sm:text-4xl">Your back office starts here.</h2>
             <p className="mt-5 max-w-md text-base leading-relaxed text-white/70">Create the owner account to manage workforce operations, access controls, and the Holard team workspace.</p>
           </div>
