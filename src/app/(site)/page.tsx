@@ -116,7 +116,7 @@ export default function Home() {
         <div className="container-site grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <div className="relative">
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
-              <Image src="/images/provided/home-why-team.jpg" alt="Colleagues meeting to plan workforce support" fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover" />
+              <Image src="/images/provided/home-case-payroll.jpg" alt="Colleagues collaborating around a table in a planning meeting" fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover" />
             </div>
             <div className="absolute -bottom-6 right-4 rounded-2xl bg-orange p-6 text-white shadow-2xl sm:-right-6 lg:p-8">
               <p className="font-heading text-5xl font-extrabold">24h</p>
