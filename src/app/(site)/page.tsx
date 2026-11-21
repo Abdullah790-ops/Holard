@@ -31,7 +31,7 @@ export default function Home() {
         </video>
         <Image src="/images/hero-poster.jpg" alt="Construction team reviewing a worksite" fill priority sizes="100vw" className="absolute inset-0 z-0 hidden object-cover motion-reduce:block" />
         <div className="absolute inset-0 z-10 bg-[radial-gradient(ellipse_at_78%_18%,_var(--color-navy-3)_0%,_transparent_68%)]" />
-        <div className="absolute inset-0 z-10 bg-gradient-to-t from-navy/95 via-navy/55 to-navy/35" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-navy/90 via-navy/45 to-navy/25" />
         <div className="container-site relative z-20 w-full pb-12 pt-36 lg:pb-16 lg:pt-44">
           <p className="eyebrow fade-up">{site.tagline}</p>
           <h1 className="h1 fade-up mt-6 max-w-5xl text-white">{site.h1}</h1>
