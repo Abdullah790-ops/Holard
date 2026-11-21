@@ -28,7 +28,7 @@ export default function About() {
               <p>Today more than 500 workers support client operations across warehouses, facilities, construction sites, and hotels.</p>
             </div>
           </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl"><Image src="/images/provided/about-team.jpg" alt="A diverse team standing together in their workplace" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" /></div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl"><Image src="/images/provided/about-team.jpg" alt="A diverse team standing together in their workplace" fill quality={90} sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" /></div>
         </div>
         <div className="container-site mt-16">
           <p className="mb-4 font-heading text-lg font-bold text-navy">HOLARD Consulting in numbers</p>
@@ -41,7 +41,7 @@ export default function About() {
         <div className="container-site">
           <SectionHeading center eyebrow="Vision & Mission" title="Our Purpose & Direction." />
           <div className="relative mt-12 aspect-[21/8] overflow-hidden rounded-3xl">
-            <Image src="/images/provided/about-purpose-team.jpg" alt="Team collaborating on a shared purpose" fill sizes="100vw" className="object-cover" />
+            <Image src="/images/provided/about-purpose-team.jpg" alt="Team collaborating on a shared purpose" fill quality={90} sizes="100vw" className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-navy/70 to-transparent" />
           </div>
           <div className="relative -mt-16 grid gap-6 px-4 md:grid-cols-2 lg:-mt-24 lg:px-10">
@@ -102,7 +102,7 @@ export default function About() {
               <figure key={m.name} className="overflow-hidden rounded-3xl bg-white">
                 <div className="relative aspect-[4/5] bg-navy">
                   {m.photo ? (
-                    <Image src={m.photo} alt={`${m.name}, ${m.role}`} fill sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw" className="object-cover object-top" />
+                    <Image src={m.photo} alt={`${m.name}, ${m.role}`} fill quality={90} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw" className="object-cover object-top" />
                   ) : (
                     <span className="absolute inset-0 grid place-items-center">
                       <span className="grid h-28 w-28 place-items-center rounded-full border-2 border-dashed border-white/30 font-heading text-3xl font-extrabold text-white/80">

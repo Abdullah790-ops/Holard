@@ -16,7 +16,7 @@ export function ClientLogo({ name, className = "", tone = "light" }: { name: str
   const src = logos[name];
   return (
     <span className={`grid h-16 w-24 shrink-0 place-items-center ${tone === "dark" ? "rounded-none border-0 bg-transparent p-0" : "rounded-xl border border-line bg-white p-2"} ${className}`}>
-      {src ? <Image src={src} alt={`${name} logo`} width={112} height={64} sizes="112px" className={`max-h-full max-w-full object-contain ${tone === "dark" ? "brightness-0 invert" : ""}`} /> : <Building2 className="h-7 w-7 text-navy/45" aria-label={`${name} logo unavailable`} />}
+      {src ? <Image src={src} alt={`${name} logo`} width={112} height={64} quality={90} sizes="112px" className={`max-h-full max-w-full object-contain ${tone === "dark" ? "brightness-0 invert" : ""}`} /> : <Building2 className="h-7 w-7 text-navy/45" aria-label={`${name} logo unavailable`} />}
     </span>
   );
 }

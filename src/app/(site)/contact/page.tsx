@@ -26,7 +26,7 @@ export default function Contact() {
       <section className="section bg-white">
         <div className="container-site grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl"><Image src="/images/provided/contact-reception.jpg" alt="Reception area at a professional workplace" fill sizes="(max-width: 1024px) 100vw, 42vw" className="object-cover" /></div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl"><Image src="/images/provided/contact-reception.jpg" alt="Reception area at a professional workplace" fill quality={90} sizes="(max-width: 1024px) 100vw, 42vw" className="object-cover" /></div>
             <ul className="mt-8 space-y-5">
               {info.map(({ icon: I, t, v, href }) => (
                 <li key={t} className="flex gap-4">

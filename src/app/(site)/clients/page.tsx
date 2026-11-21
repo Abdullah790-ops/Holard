@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 };
 
 const cases = [
-  { client: "UAE Logistics Client", title: "120 Warehouse Helpers at a Noon Store",
-    challenge: "A fast-growing Noon store operation needed a large, reliable warehouse team with daily attendance visibility.",
-    solution: "Holard deployed 120 warehouse helpers with an on-site supervisor, daily attendance reporting and one monthly invoice.",
-    results: [["120", "Helpers deployed"], ["98%", "Daily attendance"], ["1", "Monthly invoice"]] },
+  { client: "UAE Logistics Client", title: "Warehouse Workforce Support",
+    challenge: "Logistics operations need dependable warehouse workers and clear attendance visibility.",
+    solution: "Holard deploys warehouse workers with day-to-day coordination, attendance tracking and clear monthly invoicing.",
+    results: [["Ready", "Warehouse teams"], ["Daily", "Attendance tracking"], ["Clear", "Monthly invoicing"]] },
   { client: "Facilities Client", title: "Facilities Staff With 24-Hour Replacement",
     challenge: "Multi-site facility contracts with strict SLAs — any absence affects service quality.",
     solution: "Holard supplied trained cleaners and helpers with a guaranteed 24-hour replacement promise.",

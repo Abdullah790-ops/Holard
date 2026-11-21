@@ -10,7 +10,7 @@ export function PageHero({
 }) {
   return (
     <section className="relative isolate overflow-hidden bg-navy text-white">
-      {image && <Image src={image} alt="" fill priority sizes="100vw" className="-z-20 object-cover" />}
+      {image && <Image src={image} alt="" fill priority quality={90} sizes="100vw" className="-z-20 object-cover" />}
       <div className={`absolute inset-0 -z-10 ${image ? "bg-gradient-to-r from-navy via-navy/90 to-navy/45" : "bg-[radial-gradient(ellipse_at_top_right,_var(--color-navy-3),_var(--color-navy)_65%)]"}`} />
       <div className="container-site pb-20 pt-36 lg:pb-28 lg:pt-48">
         {crumbs.length > 0 && (

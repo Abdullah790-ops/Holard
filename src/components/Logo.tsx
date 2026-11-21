@@ -6,7 +6,7 @@ export function Logo({ light = false, height = 52, href = "/" }: { light?: boole
   const width = Math.round(height * (640 / 317));
   return (
     <Link href={href} aria-label="HOLARD Consulting — home" className="inline-flex shrink-0 items-center">
-      <Image src={light ? "/brand/logo-light.png" : "/brand/logo-dark.png"} alt="HOLARD Consulting" width={width} height={height} priority style={{ height, width }} />
+      <Image src={light ? "/brand/logo-light.png" : "/brand/logo-dark.png"} alt="HOLARD Consulting" width={width} height={height} quality={95} priority style={{ height, width }} />
     </Link>
   );
 }

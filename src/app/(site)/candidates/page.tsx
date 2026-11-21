@@ -58,7 +58,7 @@ export default async function Candidates() {
 
       <section className="section bg-mist">
         <div className="container-site grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl"><Image src="/images/provided/jobs-benefits.jpg" alt="Candidate reviewing application details on a laptop" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" /></div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl"><Image src="/images/provided/jobs-benefits.jpg" alt="Candidate reviewing application details on a laptop" fill quality={90} sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" /></div>
           <div>
             <SectionHeading eyebrow="Benefits" title="Everything Taken Care Of." />
             <ul className="mt-10 grid grid-cols-2 gap-3 sm:gap-4">

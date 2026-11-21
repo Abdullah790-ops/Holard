@@ -25,6 +25,7 @@ export const site = {
     linkedin: null as string | null,
     instagram: null as string | null,
     facebook: null as string | null,
+    twitter: null as string | null,
     tiktok: null as string | null,
   },
 };
@@ -79,8 +80,8 @@ export const clients: Client[] = [
     name: "UAE Logistics Client",
     short: "LC",
     industry: "Warehouse & Logistics",
-    supplies: "120 warehouse helpers deployed at a Noon store, UAE",
-    quote: "Holard supplied 120 warehouse helpers for our Noon store, attendance 98%, invoicing is clear.",
+    supplies: "Warehouse workers for logistics and fulfilment operations",
+    quote: "Holard provides dependable warehouse workers and clear day-to-day coordination.",
     role: "Operations Manager",
   },
   {
@@ -180,7 +181,7 @@ const serviceIcons: Record<string, string> = {
 
 export const services = Object.values(serviceCorrectionCopy).map((copy) => {
   const servicePhotos: Record<string, string> = {
-    "hr-consulting": "/images/provided/service-hr-consulting.webp",
+    "hr-consulting": "/images/provided/service-hr-consulting.jpg",
     recruitment: "/images/provided/service-recruitment.webp",
     "manpower-solution": "/images/provided/service-manpower.webp",
     "warehouse-logistics-staffing": "/images/provided/service-warehouse.webp",
@@ -210,7 +211,7 @@ export const services = Object.values(serviceCorrectionCopy).map((copy) => {
 
 export const homeServiceCards = [
   { title: "HR Consulting", short: "Practical HR strategy, audits, policies, and performance systems for your team.", href: "/services/hr-consulting", icon: "ShieldCheck", image: "/images/provided/home-hr-consulting-card.jpg" },
-  { title: "Recruitment", short: "Find and assess the right permanent hire for the role and your organisation.", href: "/services/recruitment", icon: "UserRoundSearch", image: "/images/provided/home-recruitment-card.jpg" },
+  { title: "Recruitment", short: "Find and assess the right permanent hire for the role and your organisation.", href: "/services/recruitment", icon: "UserRoundSearch", image: "/images/provided/service-recruitment.jpg" },
   { title: "Manpower Solutions", short: "Plan contract teams for site work, operations, and changing workforce demand.", href: "/services/manpower-solution", icon: "HardHat", image: "/images/provided/home-manpower-card.jpg" },
 ] as const;
 
@@ -229,7 +230,7 @@ export const industries = [
     ],
     example: {
       client: "UAE logistics client",
-      text: "120 warehouse helpers deployed at a Noon store in the UAE, with 98% daily attendance and one clear monthly invoice.",
+      text: "Warehouse workers deployed across the UAE with attendance tracking and clear monthly invoicing.",
     },
   },
   {

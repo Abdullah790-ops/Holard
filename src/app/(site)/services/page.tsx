@@ -22,7 +22,7 @@ export default function Services() {
           {services.map((s, i) => (
             <div key={s.slug} className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
               <div className={`relative aspect-[4/3] overflow-hidden rounded-3xl bg-navy shadow-[0_24px_60px_-32px_rgba(8,24,51,0.55)] ${i % 2 ? "lg:order-2" : ""}`}>
-                {s.image ? <Image src={s.image} alt={`${s.title} team at work`} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition-transform duration-700 hover:scale-[1.03]" /> : <div className="grid h-full place-items-center"><span className="text-6xl font-extrabold text-white/30">0{i + 1}</span></div>}
+                {s.image ? <Image src={s.image} alt={`${s.title} team at work`} fill quality={90} sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition-transform duration-700 hover:scale-[1.03]" /> : <div className="grid h-full place-items-center"><span className="text-6xl font-extrabold text-white/30">0{i + 1}</span></div>}
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/20 via-transparent to-white/5" />
               </div>
               <div>

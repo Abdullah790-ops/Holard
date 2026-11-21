@@ -3,17 +3,21 @@ import { Mail, MapPin, Phone, CalendarCheck, Clock, MessageCircle } from "lucide
 import { industries, services, site } from "@/lib/site";
 import { Logo } from "./Logo";
 
-const Social = ({ href, label, d }: { href: string; label: string; d: string }) => (
-  <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
-     className="grid h-11 w-11 place-items-center rounded-full bg-white/10 text-white transition hover:bg-orange">
-    <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden><path d={d} /></svg>
-  </a>
-);
+const Social = ({ href, label, d }: { href: string | null; label: string; d: string }) => {
+  const className = "grid h-11 w-11 place-items-center rounded-full bg-white/10 text-white transition";
+  const icon = <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden><path d={d} /></svg>;
+  return href ? (
+    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className={`${className} hover:bg-orange`}>{icon}</a>
+  ) : (
+    <span role="img" aria-label={`${label} link coming soon`} title={`${label} link coming soon`} className={`${className} cursor-default opacity-80`}>{icon}</span>
+  );
+};
 
 const icons = {
   linkedin: "M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3v-11zm6.5 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-3.95v-11z",
   instagram: "M12 2.2c3.2 0 3.6 0 4.8.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.8s0 3.6-.07 4.8c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.8.07s-3.6 0-4.8-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.8c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.2 8.8 2.2 12 2.2zm0 4.86a4.94 4.94 0 1 0 0 9.88 4.94 4.94 0 0 0 0-9.88zm0 8.15a3.21 3.21 0 1 1 0-6.42 3.21 3.21 0 0 1 0 6.42zm5.14-9.5a1.15 1.15 0 1 0 0 2.3 1.15 1.15 0 0 0 0-2.3z",
   facebook: "M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.87.25-1.46 1.5-1.46h1.55V4.45c-.27-.04-1.19-.12-2.26-.12-2.24 0-3.77 1.37-3.77 3.87v2.3H8v3h2.52V21h2.98z",
+  twitter: "M23.95 4.57a10 10 0 0 1-2.83.78 4.93 4.93 0 0 0 2.17-2.72 9.86 9.86 0 0 1-3.13 1.2 4.92 4.92 0 0 0-8.39 4.48A13.98 13.98 0 0 1 1.64 3.16a4.92 4.92 0 0 0 1.52 6.57 4.9 4.9 0 0 1-2.23-.62v.06a4.93 4.93 0 0 0 3.95 4.83 4.94 4.94 0 0 1-2.22.08 4.93 4.93 0 0 0 4.6 3.42A9.87 9.87 0 0 1 0 19.54a13.93 13.93 0 0 0 7.55 2.21c9.05 0 14-7.5 14-14v-.64a10 10 0 0 0 2.46-2.54z",
   tiktok: "M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.6 2.6 0 0 1-2.59-2.6 2.6 2.6 0 0 1 3.4-2.47V9.67a5.68 5.68 0 0 0-6.5 5.64A5.7 5.7 0 0 0 9.86 21a5.68 5.68 0 0 0 5.68-5.69V9.01a7.33 7.33 0 0 0 4.29 1.38V7.3s-1.88.09-3.23-1.48z",
 };
 
@@ -51,8 +55,9 @@ export function Footer() {
           <p className="mt-4 max-w-sm text-white/65">Manpower supply, recruitment and HR consulting across the UAE since 2020.</p>
           <div className="mt-6 flex gap-3">
             {site.social.linkedin && <Social href={site.social.linkedin} label="LinkedIn" d={icons.linkedin} />}
-            {site.social.instagram && <Social href={site.social.instagram} label="Instagram" d={icons.instagram} />}
-            {site.social.facebook && <Social href={site.social.facebook} label="Facebook" d={icons.facebook} />}
+            <Social href={site.social.facebook} label="Facebook" d={icons.facebook} />
+            <Social href={site.social.instagram} label="Instagram" d={icons.instagram} />
+            <Social href={site.social.twitter} label="Twitter" d={icons.twitter} />
             {site.social.tiktok && <Social href={site.social.tiktok} label="TikTok" d={icons.tiktok} />}
           </div>
         </div>
