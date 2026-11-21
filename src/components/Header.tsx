@@ -44,7 +44,7 @@ export function Header() {
         Skip to content
       </a>
       <div className="mx-auto flex h-20 w-full max-w-[1440px] items-center justify-between gap-3 px-4 sm:gap-4 sm:px-5 md:px-8">
-        <span className="origin-left scale-[0.72] sm:scale-100">
+        <span className="origin-left">
           <Logo light={!solid} height={68} />
         </span>
 
