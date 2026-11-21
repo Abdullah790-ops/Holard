@@ -3,11 +3,11 @@ import { Mail, MapPin, Phone, CalendarCheck, Clock, MessageCircle } from "lucide
 import { industries, services, site } from "@/lib/site";
 import { Logo } from "./Logo";
 
-const Social = ({ href, label, d }: { href: string | null; label: string; d: string }) => {
+const Social = ({ href, label, d, hoverClass }: { href: string | null; label: string; d: string; hoverClass: string }) => {
   const className = "grid h-11 w-11 place-items-center rounded-full bg-white/10 text-white transition";
   const icon = <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden><path d={d} /></svg>;
   return href ? (
-    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className={`${className} hover:bg-orange`}>{icon}</a>
+    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className={`${className} ${hoverClass}`}>{icon}</a>
   ) : (
     <span role="img" aria-label={`${label} link coming soon`} title={`${label} link coming soon`} className={`${className} cursor-default opacity-80`}>{icon}</span>
   );
@@ -68,12 +68,12 @@ export function Footer() {
           <p className="mt-6 max-w-sm font-heading text-xl font-semibold leading-snug text-white">{site.tagline}</p>
           <p className="mt-4 max-w-sm text-white/65">Manpower supply, recruitment and HR consulting across the UAE since 2020.</p>
           <div className="mt-6 flex gap-3">
-            {site.social.linkedin && <Social href={site.social.linkedin} label="LinkedIn" d={icons.linkedin} />}
-            <Social href={site.social.facebook} label="Facebook" d={icons.facebook} />
-            <Social href={site.social.instagram} label="Instagram" d={icons.instagram} />
-            <Social href={site.social.twitter} label="Twitter" d={icons.twitter} />
+            {site.social.linkedin && <Social href={site.social.linkedin} label="LinkedIn" d={icons.linkedin} hoverClass="hover:bg-[#0A66C2]" />}
+            <Social href={site.social.facebook} label="Facebook" d={icons.facebook} hoverClass="hover:bg-[#1877F2]" />
+            <Social href={site.social.instagram} label="Instagram" d={icons.instagram} hoverClass="hover:bg-[#E1306C]" />
+            <Social href={site.social.twitter} label="Twitter" d={icons.twitter} hoverClass="hover:bg-[#1DA1F2]" />
             <WhatsAppSocial href={site.whatsappHref} />
-            {site.social.tiktok && <Social href={site.social.tiktok} label="TikTok" d={icons.tiktok} />}
+            {site.social.tiktok && <Social href={site.social.tiktok} label="TikTok" d={icons.tiktok} hoverClass="hover:bg-[#111111]" />}
           </div>
         </div>
         <div className="grid gap-10 sm:grid-cols-4 lg:col-span-6">
