@@ -395,13 +395,14 @@ export const faqGroups = [
 ];
 
 export const jobs = [
-  { title: "Warehouse Helper", salary: "AED 1,500 – 1,800", location: "Dubai", type: "Full-time" },
-  { title: "Cleaner", salary: "AED 1,300 – 1,600", location: "Sharjah / Dubai", type: "Full-time" },
-  { title: "Driver (Light Vehicle)", salary: "AED 2,500", location: "Dubai", type: "Full-time" },
-  { title: "General Helper", salary: "AED 1,200 – 1,500", location: "Abu Dhabi", type: "Full-time" },
-  { title: "Technician (MEP)", salary: "AED 2,200 – 3,000", location: "Dubai", type: "Full-time" },
+  { title: "Warehouse Assistant", salary: "AED 1,400 – 2,800", location: "UAE", type: "Full-time", description: "" },
+  { title: "Cleaner", salary: "AED 1,300 – 1,800", location: "UAE", type: "Full-time", description: "" },
+  { title: "Driver", salary: "AED 2,500 – 4,500", location: "UAE", type: "Full-time", description: "" },
+  { title: "Masons", salary: "AED 1,500 – 3,000", location: "UAE", type: "Full-time", description: "" },
+  { title: "General Helpers", salary: "AED 1,000 – 1,500", location: "UAE", type: "Full-time", description: "" },
+  { title: "Bike Riders", salary: "AED 1,500 – 1,800", location: "UAE", type: "Full-time", description: "" },
+  { title: "LSA Nursing Assistants", salary: "AED 2,500 – 4,000", location: "UAE", type: "Full-time", description: "" },
 ];
-// TODO: only Driver AED 2,500 was supplied in the brief — confirm the other salary ranges.
 
 export const timeline = [
   { year: "2020", t: "Founded", d: "Started in the UAE with 8 workers." },

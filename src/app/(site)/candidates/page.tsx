@@ -6,12 +6,12 @@ import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { LeadForm } from "@/components/LeadForm";
 import { asc, eq } from "drizzle-orm";
-import { countries, workerTestimonials } from "@/lib/site";
+import { countries, jobs as listedJobs, workerTestimonials } from "@/lib/site";
 import { getDb, schema } from "@/db";
 
 export const metadata: Metadata = {
   title: "Jobs in UAE | Apply To Join 1,000+ Talent Pool | HOLARD",
-  description: "Apply for helper, cleaner, driver, warehouse and technician jobs in the UAE. Visa, accommodation, transport and medical provided. Salary on time. No recruitment fees.",
+  description: "Apply for warehouse assistant, cleaner, driver, mason, general helper, bike rider and LSA nursing assistant jobs in the UAE. No recruitment fees.",
 };
 
 const benefits = [
@@ -27,7 +27,12 @@ export const revalidate = 60; // pre-built; refreshed instantly when admin edits
 
 export default async function Candidates() {
   const db = await getDb();
-  const jobs = await db.select().from(schema.jobs).where(eq(schema.jobs.isPublished, true)).orderBy(asc(schema.jobs.sortOrder), asc(schema.jobs.createdAt));
+  const publishedJobs = await db.select().from(schema.jobs).where(eq(schema.jobs.isPublished, true)).orderBy(asc(schema.jobs.sortOrder), asc(schema.jobs.createdAt));
+  const listedRolePattern = /warehouse|cleaner|driver|mason|general helper|bike rider|nursing assistant|lsa/i;
+  const jobs = [
+    ...listedJobs,
+    ...publishedJobs.filter((job) => !listedRolePattern.test(job.title)),
+  ];
   return (
     <>
       <PageHero image="/images/provided/jobs-candidate.jpg" eyebrow="For New Candidates" title="Find your next job in the UAE." sub="Explore open roles and apply directly. We do not charge candidates an application fee." crumbs={[{ label: "For Candidates" }]}>
@@ -41,7 +46,7 @@ export default async function Candidates() {
           {jobs.length === 0 && <p className="mt-10 rounded-2xl bg-mist p-8 text-center text-muted">No open positions right now — apply below and we&apos;ll contact you when a matching job opens.</p>}
           <ul className="mt-12 divide-y divide-line overflow-hidden rounded-3xl border border-line empty:hidden">
             {jobs.map((j) => (
-              <li key={j.id} className="flex flex-col gap-4 p-6 transition hover:bg-mist sm:flex-row sm:items-center sm:justify-between lg:px-8">
+              <li key={j.title} className="flex flex-col gap-4 p-6 transition hover:bg-mist sm:flex-row sm:items-center sm:justify-between lg:px-8">
                 <div>
                   <h3 className="font-heading text-xl font-bold text-navy">{j.title}</h3>
                   <p className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted"><span className="flex items-center gap-1"><MapPin className="h-4 w-4" aria-hidden />{j.location}</span><span>{j.type}</span>{j.description && <span>{j.description}</span>}</p>
