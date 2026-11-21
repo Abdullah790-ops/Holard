@@ -254,7 +254,7 @@ export const industries = [
     slug: "hospitality-hotels",
     title: "Hospitality & Hotels",
     short: "Stewards, room attendants and kitchen helpers for hotels and events.",
-    image: "/images/ind-hospitality.jpg",
+    image: "/images/provided/service-hospitality.jpg",
     clientsLine: "Hotels · Resorts · Events",
     workers: ["Room Attendants", "Stewards", "Kitchen Helpers", "Waiters", "Laundry Staff", "Event Crew"],
     why: [
@@ -288,7 +288,7 @@ export const industries = [
     slug: "healthcare",
     title: "Healthcare",
     short: "Workforce planning for clinics, hospitals and healthcare support teams.",
-    image: "/images/provided/industry-healthcare.jpg",
+    image: "/images/provided/service-healthcare.jpg",
     clientsLine: "Clinics · hospitals · healthcare groups",
     workers: ["Facilities staff", "Cleaning teams", "Porters", "Reception support", "Stores assistants", "Operations support"],
     why: ["Role and site requirements are discussed before sourcing", "Shift and access needs can be included in the plan", "Responsibilities and service scope are confirmed before start"],

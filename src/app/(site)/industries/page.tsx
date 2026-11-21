@@ -20,7 +20,7 @@ export default function Industries() {
           {industries.map((ind, i) => (
             <Link key={ind.slug} href={`/industries/${ind.slug}`} className="group card overflow-hidden transition hover:shadow-2xl">
               <div className="relative aspect-[16/9] overflow-hidden bg-navy">
-                <Image src={ind.image ?? "/images/ind-industrial.jpg"} alt={`${ind.title} workplace`} fill quality={90} sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition duration-500 group-hover:scale-105" />
+                <Image src={ind.image ?? "/images/ind-industrial.jpg"} alt={`${ind.title} workplace`} fill quality={90} sizes="(max-width: 768px) 100vw, 50vw" className={`object-cover transition duration-500 group-hover:scale-105 ${ind.slug === "healthcare" || ind.slug === "hospitality-hotels" ? "object-[center_20%]" : "object-center"}`} />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent" />
                 {i === 0 && <span className="absolute left-5 top-5 rounded-full bg-orange px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">Main sector</span>}
               </div>
