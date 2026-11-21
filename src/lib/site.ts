@@ -23,9 +23,8 @@ export const site = {
   hours: "Mon – Sat, 9 AM – 6 PM",
   social: {
     linkedin: null as string | null,
-    instagram: null as string | null,
-    facebook: null as string | null,
-    twitter: null as string | null,
+    instagram: "https://www.instagram.com/holardhrconsulting?avpt=M3Jjd2diMWd3d3I4",
+    facebook: "https://www.facebook.com/share/19zAo6ESGj/?mibextid=wwXIfr",
     tiktok: null as string | null,
   },
 };

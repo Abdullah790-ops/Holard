@@ -4,17 +4,17 @@ import { industries, services, site } from "@/lib/site";
 import { Logo } from "./Logo";
 
 const Social = ({ href, label, d, hoverClass }: { href: string | null; label: string; d: string; hoverClass: string }) => {
-  const className = "grid h-11 w-11 place-items-center rounded-full bg-white/10 text-white transition";
+  const className = "grid h-11 w-11 cursor-pointer place-items-center rounded-full bg-white/10 text-white transition";
   const icon = <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden><path d={d} /></svg>;
   return href ? (
     <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className={`${className} ${hoverClass}`}>{icon}</a>
   ) : (
-    <span role="img" aria-label={`${label} link coming soon`} title={`${label} link coming soon`} className={`${className} cursor-default opacity-80`}>{icon}</span>
+    <span role="img" aria-label={`${label} link coming soon`} title={`${label} link coming soon`} className={`${className} ${hoverClass} opacity-80`}>{icon}</span>
   );
 };
 
 const WhatsAppSocial = ({ href }: { href: string | null }) => {
-  const className = "grid h-11 w-11 place-items-center rounded-full bg-white/10 text-white transition hover:bg-[#25D366]";
+  const className = "grid h-11 w-11 cursor-pointer place-items-center rounded-full bg-white/10 text-white transition hover:bg-[#25D366]";
   const icon = (
     <svg viewBox="0 0 448 512" className="h-5 w-5 fill-current" aria-hidden>
       <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32 101.5 32 1.9 131.6 1.9 254c0 39.1 10.2 77.3 29.6 110.9L0 480l117.8-30.9c32.4 17.7 68.9 27 106 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115.9-67.1-157.9zM223.9 438.7c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.9 18.3 18.7-68.2-4.4-7C49 322.4 39.4 288.6 39.4 254c0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.5 54.1s57.1 81.2 57.1 130.5c0 101.7-85.9 184.6-187.7 184.6zm101.3-138.3c-5.5-2.8-32.8-16.2-37.9-18.1-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.5-14.3 18.1-17.5 21.8-3.2 3.7-6.5 4.2-12 1.4-32.7-16.4-54.2-29.3-75.8-66.3-5.7-9.8 5.7-9.1 16.4-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.5-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.7 83.7 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z" />
@@ -23,7 +23,7 @@ const WhatsAppSocial = ({ href }: { href: string | null }) => {
   return href ? (
     <a href={href} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className={className}>{icon}</a>
   ) : (
-    <span role="img" aria-label="WhatsApp link coming soon" title="WhatsApp link coming soon" className={`${className} cursor-default opacity-80`}>{icon}</span>
+    <span role="img" aria-label="WhatsApp link coming soon" title="WhatsApp link coming soon" className={`${className} opacity-80`}>{icon}</span>
   );
 };
 
@@ -31,7 +31,6 @@ const icons = {
   linkedin: "M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3v-11zm6.5 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-3.95v-11z",
   instagram: "M12 2.2c3.2 0 3.6 0 4.8.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.8s0 3.6-.07 4.8c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.8.07s-3.6 0-4.8-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.8c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.2 8.8 2.2 12 2.2zm0 4.86a4.94 4.94 0 1 0 0 9.88 4.94 4.94 0 0 0 0-9.88zm0 8.15a3.21 3.21 0 1 1 0-6.42 3.21 3.21 0 0 1 0 6.42zm5.14-9.5a1.15 1.15 0 1 0 0 2.3 1.15 1.15 0 0 0 0-2.3z",
   facebook: "M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.87.25-1.46 1.5-1.46h1.55V4.45c-.27-.04-1.19-.12-2.26-.12-2.24 0-3.77 1.37-3.77 3.87v2.3H8v3h2.52V21h2.98z",
-  twitter: "M23.95 4.57a10 10 0 0 1-2.83.78 4.93 4.93 0 0 0 2.17-2.72 9.86 9.86 0 0 1-3.13 1.2 4.92 4.92 0 0 0-8.39 4.48A13.98 13.98 0 0 1 1.64 3.16a4.92 4.92 0 0 0 1.52 6.57 4.9 4.9 0 0 1-2.23-.62v.06a4.93 4.93 0 0 0 3.95 4.83 4.94 4.94 0 0 1-2.22.08 4.93 4.93 0 0 0 4.6 3.42A9.87 9.87 0 0 1 0 19.54a13.93 13.93 0 0 0 7.55 2.21c9.05 0 14-7.5 14-14v-.64a10 10 0 0 0 2.46-2.54z",
   tiktok: "M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.6 2.6 0 0 1-2.59-2.6 2.6 2.6 0 0 1 3.4-2.47V9.67a5.68 5.68 0 0 0-6.5 5.64A5.7 5.7 0 0 0 9.86 21a5.68 5.68 0 0 0 5.68-5.69V9.01a7.33 7.33 0 0 0 4.29 1.38V7.3s-1.88.09-3.23-1.48z",
 };
 
@@ -71,9 +70,8 @@ export function Footer() {
             {site.social.linkedin && <Social href={site.social.linkedin} label="LinkedIn" d={icons.linkedin} hoverClass="hover:bg-[#0A66C2]" />}
             <Social href={site.social.facebook} label="Facebook" d={icons.facebook} hoverClass="hover:bg-[#1877F2]" />
             <Social href={site.social.instagram} label="Instagram" d={icons.instagram} hoverClass="hover:bg-[#E1306C]" />
-            <Social href={site.social.twitter} label="Twitter" d={icons.twitter} hoverClass="hover:bg-[#1DA1F2]" />
+            <Social href={site.social.tiktok} label="TikTok" d={icons.tiktok} hoverClass="hover:bg-[#111111]" />
             <WhatsAppSocial href={site.whatsappHref} />
-            {site.social.tiktok && <Social href={site.social.tiktok} label="TikTok" d={icons.tiktok} hoverClass="hover:bg-[#111111]" />}
           </div>
         </div>
         <div className="grid gap-10 sm:grid-cols-4 lg:col-span-6">
