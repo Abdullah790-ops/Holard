@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Quote } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -13,15 +14,15 @@ export const metadata: Metadata = {
 };
 
 const cases = [
-  { client: "UAE Logistics Client", title: "Warehouse Workforce Support",
+  { client: "UAE Logistics Client", title: "Warehouse Workforce Support", image: "/images/provided/service-warehouse.jpg", imageAlt: "Warehouse worker operating a forklift among stocked shelves",
     challenge: "Logistics operations need dependable warehouse workers and clear attendance visibility.",
     solution: "Holard deploys warehouse workers with day-to-day coordination, attendance tracking and clear monthly invoicing.",
     results: [["Ready", "Warehouse teams"], ["Daily", "Attendance tracking"], ["Clear", "Monthly invoicing"]] },
-  { client: "Facilities Client", title: "Facilities Staff With 24-Hour Replacement",
+  { client: "Facilities Client", title: "Facilities Staff With 24-Hour Replacement", image: "/images/provided/service-cleaning.jpg", imageAlt: "Facilities worker cleaning a bright office lobby",
     challenge: "Multi-site facility contracts with strict SLAs — any absence affects service quality.",
     solution: "Holard supplied trained cleaners and helpers with a guaranteed 24-hour replacement promise.",
     results: [["24h", "Replacement"], ["Multi-site", "Coverage"], ["WPS", "Compliant payroll"]] },
-  { client: "Logistics Client", title: "On-Time Warehouse Staff For Peak Season",
+  { client: "Logistics Client", title: "On-Time Warehouse Staff For Peak Season", image: "/images/provided/industry-logistics.jpg", imageAlt: "Logistics and warehouse team coordinating a shipment",
     challenge: "Peak season volumes required warehouse staff to be ready on a fixed date.",
     solution: "Holard shortlisted in 48 hours and deployed the full team on schedule with transport arranged.",
     results: [["48h", "Shortlist"], ["On time", "Peak deployment"], ["24h", "Replacement"]] },
@@ -67,7 +68,10 @@ export default function Clients() {
           <div className="mt-14 space-y-8">
             {cases.map((c, i) => (
               <article key={c.client} className="grid overflow-hidden rounded-3xl bg-white lg:grid-cols-2">
-                <div className={`relative grid min-h-[300px] place-items-center bg-[radial-gradient(ellipse_at_70%_20%,_var(--color-navy-3),_var(--color-navy)_72%)] ${i % 2 ? "lg:order-2" : ""}`}><p className="font-heading text-4xl font-extrabold text-white/20">{c.title}</p></div>
+                <div className={`relative min-h-[300px] overflow-hidden bg-navy ${i % 2 ? "lg:order-2" : ""}`}>
+                  <Image src={c.image} alt={c.imageAlt} fill quality={90} sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" aria-hidden="true" />
+                </div>
                 <div className="p-8 sm:p-12">
                   <p className="font-heading text-sm font-bold uppercase tracking-[0.16em] text-orange">{c.client}</p>
                   <h3 className="mt-3 font-heading text-2xl font-bold text-navy lg:text-3xl">{c.title}</h3>
