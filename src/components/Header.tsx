@@ -104,7 +104,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div id="mobile-menu" className="h-[calc(100dvh-5rem)] overflow-y-auto border-t border-line bg-white sm:h-[calc(100dvh-5rem)] min-[1360px]:hidden">
+        <div id="mobile-menu" className="mobile-menu-enter h-[calc(100dvh-5rem)] overflow-y-auto border-t border-line bg-white sm:h-[calc(100dvh-5rem)] min-[1360px]:hidden">
           <nav aria-label="Mobile" className="container-site py-6">
             <ul className="divide-y divide-line">
               {nav.map((item) => (
