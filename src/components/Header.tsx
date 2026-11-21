@@ -43,9 +43,9 @@ export function Header() {
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:rounded focus:bg-white focus:px-4 focus:py-2">
         Skip to content
       </a>
-      <div className="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between gap-3 px-4 sm:h-20 sm:gap-4 sm:px-5 md:px-8">
+      <div className="mx-auto flex h-20 w-full max-w-[1440px] items-center justify-between gap-3 px-4 sm:gap-4 sm:px-5 md:px-8">
         <span className="origin-left scale-[0.72] sm:scale-100">
-          <Logo light={!solid} height={58} />
+          <Logo light={!solid} height={68} />
         </span>
 
         <nav aria-label="Main" className="hidden min-[1360px]:block">
@@ -104,7 +104,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div id="mobile-menu" className="h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line bg-white sm:h-[calc(100dvh-5rem)] min-[1360px]:hidden">
+        <div id="mobile-menu" className="h-[calc(100dvh-5rem)] overflow-y-auto border-t border-line bg-white sm:h-[calc(100dvh-5rem)] min-[1360px]:hidden">
           <nav aria-label="Mobile" className="container-site py-6">
             <ul className="divide-y divide-line">
               {nav.map((item) => (
