@@ -13,6 +13,21 @@ const Social = ({ href, label, d }: { href: string | null; label: string; d: str
   );
 };
 
+const WhatsAppSocial = ({ href }: { href: string | null }) => {
+  const className = "grid h-11 w-11 place-items-center rounded-full bg-white/10 text-white transition hover:bg-[#128C7E]";
+  const icon = (
+    <svg viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.1-4.5a8.5 8.5 0 1 1 16.4-4Z" />
+      <path d="M8.1 7.7c.2-.4.4-.6.8-.6h.6c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4-.1.6l-.6.7c-.2.2-.1.4 0 .6.5.8 1.2 1.5 2 2 .2.1.4.2.6 0l.7-.6c.2-.2.4-.2.6-.1l1.8.8c.3.1.4.3.4.5v.6c0 .4-.2.7-.6.8-.6.3-1.5.3-2.5 0-1.1-.4-2.3-1.1-3.4-2.2-1.1-1.1-1.8-2.3-2.2-3.4-.3-.9-.3-1.7.1-2.3Z" />
+    </svg>
+  );
+  return href ? (
+    <a href={href} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className={className}>{icon}</a>
+  ) : (
+    <span role="img" aria-label="WhatsApp link coming soon" title="WhatsApp link coming soon" className={`${className} cursor-default opacity-80`}>{icon}</span>
+  );
+};
+
 const icons = {
   linkedin: "M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3v-11zm6.5 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-3.95v-11z",
   instagram: "M12 2.2c3.2 0 3.6 0 4.8.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.8s0 3.6-.07 4.8c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.8.07s-3.6 0-4.8-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.8c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.2 8.8 2.2 12 2.2zm0 4.86a4.94 4.94 0 1 0 0 9.88 4.94 4.94 0 0 0 0-9.88zm0 8.15a3.21 3.21 0 1 1 0-6.42 3.21 3.21 0 0 1 0 6.42zm5.14-9.5a1.15 1.15 0 1 0 0 2.3 1.15 1.15 0 0 0 0-2.3z",
@@ -58,6 +73,7 @@ export function Footer() {
             <Social href={site.social.facebook} label="Facebook" d={icons.facebook} />
             <Social href={site.social.instagram} label="Instagram" d={icons.instagram} />
             <Social href={site.social.twitter} label="Twitter" d={icons.twitter} />
+            <WhatsAppSocial href={site.whatsappHref} />
             {site.social.tiktok && <Social href={site.social.tiktok} label="TikTok" d={icons.tiktok} />}
           </div>
         </div>
