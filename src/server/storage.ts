@@ -1,11 +1,9 @@
 import "server-only";
-import path from "node:path";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
 import crypto from "node:crypto";
+import { eq } from "drizzle-orm";
 import { getDb, schema } from "@/db";
 
-// Private file storage. Local: ./data/uploads. Production: swap for S3 (UAE region) with signed URLs.
-const ROOT = path.join(process.cwd(), "data", "uploads");
+// Private durable storage in PostgreSQL; file bytes are returned only by the authenticated API route.
 export const MAX_FILE = 5 * 1024 * 1024;
 const DOCX = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
 export const DOC_MIME = new Set(["application/pdf", "image/jpeg", "image/png", "image/webp", "application/msword", DOCX]);
@@ -45,13 +43,12 @@ export async function saveFile(
   const mime = kind === "zip" ? (file.type === DOCX ? DOCX : null) : kind;
   if (!mime || !allowed.has(mime)) throw new FileError("Unsupported file type. Use PDF, JPG or PNG.");
   const key = `${new Date().toISOString().slice(0, 7)}/${crypto.randomUUID()}`;
-  await mkdir(path.join(ROOT, path.dirname(key)), { recursive: true });
-  await writeFile(path.join(ROOT, key), buf);
   const db = await getDb();
   const [row] = await db
     .insert(schema.files)
     .values({
       storageKey: key,
+      content: buf,
       filename: file.name.replace(/[^\w.\- ]+/g, "_").slice(0, 120) || "file",
       mime,
       size: file.size,
@@ -64,9 +61,10 @@ export async function saveFile(
 }
 
 export async function readStoredFile(storageKey: string) {
-  const p = path.resolve(ROOT, storageKey);
-  if (!p.startsWith(ROOT + path.sep)) throw new Error("Invalid storage key");
-  return readFile(p);
+  const db = await getDb();
+  const [row] = await db.select({ content: schema.files.content }).from(schema.files).where(eq(schema.files.storageKey, storageKey)).limit(1);
+  if (!row?.content) throw new Error("Stored file is unavailable");
+  return Buffer.from(row.content);
 }
 
 export const fileFrom = (v: FormDataEntryValue | null) => (v instanceof File && v.size > 0 ? v : null);

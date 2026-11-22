@@ -1,11 +1,12 @@
 import { sql } from "drizzle-orm";
 import {
-  boolean, date, index, integer, jsonb, numeric, pgTable, text, timestamp, uniqueIndex, uuid,
+  boolean, customType, date, index, integer, jsonb, numeric, pgTable, text, timestamp, uniqueIndex, uuid,
 } from "drizzle-orm/pg-core";
 
 const id = () => uuid("id").primaryKey().defaultRandom();
 const createdAt = () => timestamp("created_at", { withTimezone: true }).notNull().defaultNow();
 const updatedAt = () => timestamp("updated_at", { withTimezone: true }).notNull().defaultNow();
+const bytea = customType<{ data: Buffer; driverData: Buffer }>({ dataType: () => "bytea" });
 
 export const ROLES = ["super_admin", "client_admin", "supervisor", "employee", "investor"] as const;
 export type Role = (typeof ROLES)[number];
@@ -151,6 +152,7 @@ export const workerDocuments = pgTable("worker_documents", {
 export const files = pgTable("files", {
   id: id(),
   storageKey: text("storage_key").notNull(),
+  content: bytea("content"),
   filename: text("filename").notNull(),
   mime: text("mime").notNull(),
   size: integer("size").notNull(),
@@ -158,6 +160,13 @@ export const files = pgTable("files", {
   ownerId: uuid("owner_id"),
   uploadedBy: uuid("uploaded_by"),
   createdAt: createdAt(),
+});
+
+// Shared database-backed rate limits work across stateless serverless instances.
+export const rateLimitBuckets = pgTable("rate_limit_buckets", {
+  key: text("key").primaryKey(),
+  count: integer("count").notNull(),
+  resetAt: timestamp("reset_at", { withTimezone: true }).notNull(),
 });
 
 // ── Recruitment & inbound ──────────────────────────────

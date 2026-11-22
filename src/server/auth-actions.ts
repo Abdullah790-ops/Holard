@@ -27,7 +27,7 @@ export async function loginWithPassword(_: AuthState, fd: FormData): Promise<Aut
   const email = String(fd.get("email") ?? "").trim().toLowerCase();
   const password = String(fd.get("password") ?? "");
   if (!email || !password) return { error: "Enter your email and password." };
-  if (rateLimited(`login:${await ip()}`, 20, 15 * 60_000) || rateLimited(`login:${email}`, 8, 15 * 60_000)) {
+  if (await rateLimited(`login:${await ip()}`, 20, 15 * 60_000) || await rateLimited(`login:${email}`, 8, 15 * 60_000)) {
     return { error: "Too many attempts. Please wait 15 minutes and try again." };
   }
   const db = await getDb();
@@ -43,7 +43,7 @@ export async function loginWithPassword(_: AuthState, fd: FormData): Promise<Aut
 export async function requestOtp(_: AuthState, fd: FormData): Promise<AuthState> {
   const phone = normalisePhone(String(fd.get("phone") ?? ""));
   if (!phone) return { error: "Enter a valid phone number, e.g. +971 50 123 4567." };
-  if (rateLimited(`otp:${phone}`, 3, 10 * 60_000) || rateLimited(`otp-ip:${await ip()}`, 10, 10 * 60_000)) {
+  if (await rateLimited(`otp:${phone}`, 3, 10 * 60_000) || await rateLimited(`otp-ip:${await ip()}`, 10, 10 * 60_000)) {
     return { error: "Too many codes requested. Please wait 10 minutes." };
   }
   const db = await getDb();
@@ -61,7 +61,7 @@ export async function verifyOtp(_: AuthState, fd: FormData): Promise<AuthState> 
   const phone = normalisePhone(String(fd.get("phone") ?? ""));
   const code = String(fd.get("code") ?? "").replace(/\D/g, "");
   if (!phone || code.length !== 6) return { step: "code", error: "Enter the 6-digit code." };
-  if (rateLimited(`otp-verify:${phone}`, 10, 10 * 60_000)) return { step: "code", error: "Too many attempts. Request a new code later." };
+  if (await rateLimited(`otp-verify:${phone}`, 10, 10 * 60_000)) return { step: "code", error: "Too many attempts. Request a new code later." };
   const db = await getDb();
   const [otp] = await db.select().from(schema.otpCodes)
     .where(and(eq(schema.otpCodes.phone, phone), isNull(schema.otpCodes.usedAt), gt(schema.otpCodes.expiresAt, new Date())))
@@ -80,9 +80,9 @@ export async function verifyOtp(_: AuthState, fd: FormData): Promise<AuthState> 
 export async function requestPasswordReset(_: AuthState, fd: FormData): Promise<AuthState> {
   const email = String(fd.get("email") ?? "").trim().toLowerCase();
   if (!email) return { error: "Enter your email." };
-  if (rateLimited(`reset:${await ip()}`, 5, 15 * 60_000)) return { error: "Too many requests. Please try later." };
+  if (await rateLimited(`reset:${await ip()}`, 5, 15 * 60_000)) return { error: "Too many requests. Please try later." };
   const res: AuthState = { info: "If an account exists for this email, a reset link has been sent. It expires in 30 minutes." };
-  if (rateLimited(`reset-email:${email}`, 3, 60 * 60_000)) return res; // stop inbox flooding; same reply so nothing leaks
+  if (await rateLimited(`reset-email:${email}`, 3, 60 * 60_000)) return res; // stop inbox flooding; same reply so nothing leaks
   const db = await getDb();
   const [u] = await db.select({ id: schema.users.id, status: schema.users.status }).from(schema.users).where(sql`lower(${schema.users.email}) = ${email}`).limit(1);
   if (!u || u.status !== "active") return res;
@@ -126,7 +126,7 @@ export async function changePassword(_: AuthState, fd: FormData): Promise<AuthSt
   const [row] = await db.select({ hash: schema.users.passwordHash }).from(schema.users).where(eq(schema.users.id, user.id));
   // Someone who borrows an unlocked phone/PC must not be able to take over the account: ask for the current password.
   if (!user.mustChangePassword) {
-    if (rateLimited(`pwchange:${user.id}`, 5, 15 * 60_000)) return { error: "Too many attempts. Please wait 15 minutes." };
+    if (await rateLimited(`pwchange:${user.id}`, 5, 15 * 60_000)) return { error: "Too many attempts. Please wait 15 minutes." };
     if (!(await verifyPassword(String(fd.get("current") ?? ""), row?.hash))) return { error: "Your current password is incorrect." };
   }
   if (row?.hash && (await verifyPassword(pw, row.hash))) return { error: "Choose a password different from the current one." };

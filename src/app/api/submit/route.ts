@@ -16,7 +16,7 @@ const MAX_BODY = 17 * 1024 * 1024;
 
 export async function POST(req: Request) {
   const ip = clientIp(req.headers);
-  if (rateLimited(`submit:${ip}`, 10, 10 * 60_000)) return NextResponse.json({ error: "Too many submissions. Please try again later." }, { status: 429 });
+  if (await rateLimited(`submit:${ip}`, 10, 10 * 60_000)) return NextResponse.json({ error: "Too many submissions. Please try again later." }, { status: 429 });
   // Refuse huge bodies BEFORE reading them into memory (a 2 GB upload would otherwise crash the server).
   const len = Number(req.headers.get("content-length") ?? NaN);
   if (!Number.isFinite(len) || len > MAX_BODY) return NextResponse.json({ error: "Upload too large. Each file must be under 5 MB." }, { status: 413 });
