@@ -2,7 +2,7 @@ import { site } from "@/lib/site";
 
 /** Persistent WhatsApp contact control. */
 export function ConsultFloat() {
-  const contactHref = site.whatsappHref ?? (site.whatsappNumber ? `https://wa.me/${site.whatsappNumber.replace(/\D/g, "")}` : null);
+  const contactHref = site.whatsappHref ?? (site.whatsappNumber ? `https://wa.me/${site.whatsappNumber.replace(/\D/g, "")}` : undefined);
   return (
     <a href={contactHref} target="_blank" rel="noopener noreferrer" aria-label={`Chat with HOLARD on WhatsApp${site.whatsappNumber ? ` at ${site.whatsappNumber}` : ""}`}
       className="fixed bottom-5 right-5 z-40 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#25D366] p-3.5 font-heading text-sm font-bold text-white shadow-lg transition hover:bg-[#1eae55] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366] sm:px-5 cursor-pointer">

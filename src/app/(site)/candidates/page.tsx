@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { BadgeDollarSign, Bus, Globe2, HeartPulse, Home, MapPin, Plane, Quote, UserRoundCheck } from "lucide-react";
+import { BadgeDollarSign, Bus, Globe2, HeartPulse, Home, MapPin, Plane, UserRoundCheck } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { LeadForm } from "@/components/LeadForm";
 import { asc, eq } from "drizzle-orm";
-import { countries, jobs as listedJobs, workerTestimonials } from "@/lib/site";
+import { countries, jobs as listedJobs } from "@/lib/site";
 import { getDb, schema } from "@/db";
 
 export const metadata: Metadata = {
@@ -86,21 +86,6 @@ export default async function Candidates() {
             <div className="mt-8 rounded-2xl bg-orange/10 p-6"><p className="font-heading font-bold text-navy">No fees. Ever.</p><p className="mt-1 text-sm text-muted">Holard never asks candidates for money. If someone does in our name, please report it.</p></div>
           </div>
           <div className="rounded-3xl border border-line p-6 sm:p-10 lg:col-span-8"><LeadForm type="apply" options={{ job: [...jobs.map((j) => j.title), "Other"] }} /></div>
-        </div>
-      </section>
-
-      <section className="section bg-mist">
-        <div className="container-site">
-          <SectionHeading eyebrow="Success Stories" title="Workers Who Joined Holard." />
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {workerTestimonials.map((w) => (
-              <figure key={w.name} className="rounded-2xl bg-white p-7">
-                <Quote className="h-8 w-8 text-orange" aria-hidden />
-                <blockquote className="mt-3 text-lg">“{w.quote}”</blockquote>
-                <figcaption className="mt-6 flex items-center gap-4"><span className="grid h-14 w-14 place-items-center rounded-full bg-navy font-heading font-bold text-white">{w.name.split(" ").map((part) => part[0]).slice(0,2).join("")}</span><div><p className="font-heading font-bold text-navy">{w.name}</p><p className="text-sm text-muted">{w.role}</p></div></figcaption>
-              </figure>
-            ))}
-          </div>
         </div>
       </section>
 
