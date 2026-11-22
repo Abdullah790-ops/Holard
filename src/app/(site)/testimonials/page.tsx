@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ExternalLink, Quote } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -24,7 +25,7 @@ export default async function Testimonials() {
     .orderBy(desc(schema.enquiries.createdAt)).limit(12);
   return (
     <>
-      <PageHero image="/images/why-holard.jpg" eyebrow="Testimonials" title="Hear from clients and workers." sub="Feedback from the teams and people who work with us." crumbs={[{ label: "Testimonials" }]} />
+      <PageHero image="/images/provided/home-why-team.jpg" eyebrow="Testimonials" title="Hear from clients and workers." sub="Feedback from the teams and people who work with us." crumbs={[{ label: "Testimonials" }]} />
       <section className="section bg-white">
         <div className="container-site">
           <SectionHeading eyebrow="Clients" title="Enterprise Clients." />
@@ -49,7 +50,9 @@ export default async function Testimonials() {
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {workerTestimonials.map((w) => (
               <figure key={w.name} className="rounded-2xl bg-white p-8">
-                <span className="mb-4 grid h-20 w-20 place-items-center rounded-full bg-navy font-heading text-xl font-bold text-white">{w.name.split(" ").map((part) => part[0]).slice(0, 2).join("")}</span>
+                <div className="relative mb-4 h-20 w-20 overflow-hidden rounded-full ring-2 ring-orange/20">
+                  <Image src={w.photo} alt={`${w.name}, ${w.role}`} fill sizes="80px" quality={95} className="object-cover" />
+                </div>
                 <Stars />
                 <blockquote className="mt-4 text-lg">“{w.quote}”</blockquote>
                 <figcaption className="mt-5"><p className="font-heading font-bold text-navy">{w.name}</p><p className="text-sm text-muted">{w.role}</p></figcaption>

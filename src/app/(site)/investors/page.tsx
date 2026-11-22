@@ -10,7 +10,7 @@ import { faqGroups } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Investor Portal | Invest In The Workforce Behind UAE's Empire | HOLARD",
-  description: "HOLARD: since 2020, 500 active workers, 9 enterprise clients and recurring monthly revenue. Request investor access to view approved business reports.",
+  description: "HOLARD: since 2020, 500 active workers, 50+ clients served and recurring monthly revenue. Request investor access to view approved business reports.",
 };
 
 const workers = [
@@ -35,7 +35,7 @@ export default function Investors() {
             {[
               { icon: CalendarCheck, t: "Since 2020", d: "Six years of operating history in the UAE." },
               { icon: Users, t: "500 Active Workers", d: "Deployed today across enterprise sites." },
-              { icon: Building2, t: "9 Enterprise Clients", d: "Logistics, facilities, construction, and service-sector employers." },
+              { icon: Building2, t: "50+ Clients Served", d: "Logistics, facilities, construction, and service-sector employers." },
               { icon: Repeat, t: "Recurring Monthly Revenue", d: "Clients pay per worker, every month." },
               { icon: TrendingUp, t: "1,000+ Talent Pool", d: "Ready supply to meet new demand fast." },
               { icon: Scaling, t: "Scalable Model", d: "Same platform from 500 to 5,000 workers." },

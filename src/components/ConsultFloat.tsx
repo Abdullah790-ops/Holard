@@ -1,21 +1,23 @@
-import Link from "next/link";
-import { CalendarCheck, MessageCircle } from "lucide-react";
+import { MessageCircle, Phone } from "lucide-react";
 import { site } from "@/lib/site";
 
-/** Floating "Book Consultation" button (replaces WhatsApp). */
+/** Persistent WhatsApp contact control; remains visible while the number is pending. */
 export function ConsultFloat() {
-  if (site.whatsappHref) {
+  const contactHref = site.whatsappHref ?? (site.whatsappNumber ? `https://wa.me/${site.whatsappNumber.replace(/\D/g, "")}` : null);
+  const className = "fixed bottom-5 left-5 z-40 inline-flex min-h-12 items-center gap-2 rounded-full bg-[#25D366] px-5 py-3.5 font-heading text-sm font-bold text-white shadow-lg transition hover:bg-[#1eae55] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366]";
+  const mark = <span className="relative grid h-6 w-6 place-items-center"><MessageCircle className="h-6 w-6" aria-hidden /><Phone className="absolute h-3 w-3" aria-hidden /></span>;
+
+  if (contactHref) {
     return (
-      <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" aria-label="Chat with HOLARD on WhatsApp"
-        className="fixed bottom-5 right-5 z-40 inline-flex min-h-12 items-center gap-2 rounded-full bg-[#128C7E] px-5 py-3.5 font-heading text-sm font-bold text-white shadow-lg transition hover:bg-[#0f766e]">
-        <MessageCircle className="h-5 w-5" aria-hidden /><span className="hidden sm:inline">WhatsApp</span>
+      <a href={contactHref} target="_blank" rel="noopener noreferrer" aria-label={`Chat with HOLARD on WhatsApp${site.whatsappNumber ? ` at ${site.whatsappNumber}` : ""}`}
+        className={`${className} cursor-pointer`}>
+        {mark}<span>WhatsApp</span>
       </a>
     );
   }
   return (
-    <Link href="/book-consultation" aria-label="Book a consultation"
-      className="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 rounded-full bg-orange px-5 py-3.5 font-heading text-sm font-bold text-white shadow-[0_12px_30px_-8px_rgb(255_107_0/.7)] transition hover:bg-orange-dark">
-      <CalendarCheck className="h-5 w-5" aria-hidden /><span className="hidden sm:inline">Book Consultation</span>
-    </Link>
+    <button type="button" disabled aria-label="WhatsApp number will be added" title="WhatsApp number will be added" className={`${className} cursor-not-allowed opacity-90`}>
+      {mark}<span>WhatsApp</span>
+    </button>
   );
 }

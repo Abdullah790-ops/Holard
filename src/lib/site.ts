@@ -14,10 +14,11 @@ export const site = {
   url: "https://holardhr.com",
   tagline: "Workforce solutions for businesses across the UAE",
   h1: "Manpower and recruitment for UAE logistics, facilities and construction teams.",
-  sub: "Find dependable people for essential operations, with recruitment, contract staffing and HR support from one UAE partner.",
+  sub: "We Deploy 200+ Workers in 24 Hours.",
   email: "info@holardhr.com",
   phone: null as string | null, // TODO: office number (not the director's mobile)
   phoneHref: null as string | null,
+  whatsappNumber: null as string | null, // TODO: approved WhatsApp number
   whatsappHref: null as string | null, // TODO: approved company WhatsApp link
   address: "Salim Al Mazrouye, Dubai, UAE",
   hours: "Mon – Sat, 9 AM – 6 PM",
@@ -30,22 +31,12 @@ export const site = {
 };
 
 
-export const stats = [
-  { value: 2020, prefix: "Since ", suffix: "", label: "Operating in the UAE", raw: true },
-  { value: 500, suffix: "+", label: "Active Workers Deployed" },
-  { value: 1000, suffix: "+", label: "Vetted Talent Pool" },
-  { value: 9, suffix: "+", label: "Enterprise Clients" },
-  { value: 98, suffix: "%", label: "Daily Attendance" },
-  { value: 48, suffix: "h", label: "Deployment Time" },
-  { value: 24, suffix: "/7", label: "Support" },
-];
-
 /** "Holard Consulting in numbers" (from the company profile). */
 export const profileNumbers = [
   { value: 500, suffix: "+", label: "Workers Deployed" },
-  { value: 100, suffix: "%", label: "DED Licensed" },
-  { value: 24, suffix: "/7", label: "Support" },
-  { value: 48, suffix: " hrs", label: "Replacement" },
+  { value: 50, suffix: "+", label: "Clients Served" },
+  { value: 24, suffix: " Hours", label: "Deployment" },
+  { value: 100, suffix: "%", label: "UAE Labour Law Compliant" },
 ];
 
 export const vision = "To become a trusted global partner in manpower supply & facilities management by connecting international talent with UAE producers and industrial customers through efficient, ethical, and future-focused solutions.";

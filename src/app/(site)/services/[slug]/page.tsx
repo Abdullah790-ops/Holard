@@ -47,9 +47,9 @@ const cardIcons = ["FileCheck2", "Users", "CalendarCheck", "ShieldCheck", "Walle
 const whyIcons = [BadgeCheck, Clock3, ShieldCheck, CheckCircle2];
 const manpowerRates = [
   { role: "General / Warehouse Helper", daily: "135", monthly: "3,500" },
-  { role: "Cleaner", daily: "On request", monthly: "On request" },
-  { role: "Driver (Light Vehicle)", daily: "On request", monthly: "On request" },
-  { role: "Technician", daily: "On request", monthly: "On request" },
+  { role: "Cleaner", daily: "Quote on request", monthly: "Quote on request" },
+  { role: "Driver (Light Vehicle)", daily: "Quote on request", monthly: "Quote on request" },
+  { role: "Technician", daily: "Quote on request", monthly: "Quote on request" },
 ];
 
 function industryPresentation(label: string) {

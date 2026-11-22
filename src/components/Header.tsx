@@ -4,11 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ChevronDown, Menu, X, LogIn } from "lucide-react";
-import { nav } from "@/lib/site";
+import { nav, site } from "@/lib/site";
 import { Logo } from "./Logo";
 
 export function Header() {
   const pathname = usePathname();
+  const whatsappHref = site.whatsappHref ?? (site.whatsappNumber ? `https://wa.me/${site.whatsappNumber.replace(/\D/g, "")}` : null);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [openSub, setOpenSub] = useState<string | null>(null);
@@ -138,6 +139,13 @@ export function Header() {
             <div className="mt-6 grid gap-3">
               <Link href="/contact#hire" className="btn btn-primary w-full">Hire Talent</Link>
               <Link href="/login" className="btn btn-outline w-full">Login</Link>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-x-5 gap-y-3 border-t border-line pt-5 text-sm font-semibold text-navy">
+              {whatsappHref && <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="hover:text-orange">WhatsApp{site.whatsappNumber ? ` · ${site.whatsappNumber}` : ""}</a>}
+              {site.phone && <a href={site.phoneHref ?? `tel:${site.phone}`} className="hover:text-orange">Landline · {site.phone}</a>}
+              {site.social.facebook && <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-orange">Facebook</a>}
+              {site.social.instagram && <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-orange">Instagram</a>}
+              {site.social.tiktok && <a href={site.social.tiktok} target="_blank" rel="noopener noreferrer" className="hover:text-orange">TikTok</a>}
             </div>
           </nav>
         </div>

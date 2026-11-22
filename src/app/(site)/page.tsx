@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BadgeCheck, CheckCircle2 } from "lucide-react";
 import { homeFaqs, homeServiceCards, howItWorks, industries, site, whyHolard } from "@/lib/site";
 import { TrustBar } from "@/components/TrustBar";
 import { ClientStrip } from "@/components/ClientStrip";
@@ -161,17 +161,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="section bg-white">
-        <div className="container-site grid gap-14 lg:grid-cols-12">
-          <div className="lg:col-span-4">
-            <SectionHeading eyebrow="Testimonials" title="Our Clients Say It Best." sub="Enterprise teams across warehouse, facilities and construction trust Holard every day." />
-            <Link href="/testimonials" className="btn btn-outline mt-8">All Testimonials <ArrowRight className="h-5 w-5" aria-hidden /></Link>
-          </div>
-          <div className="lg:col-span-8"><TestimonialSlider count={6} /></div>
-        </div>
-      </section>
-
       {/* HOW IT WORKS */}
       <section className="section bg-mist">
         <div className="container-site">
@@ -202,6 +191,44 @@ export default function Home() {
             <Link href="/faq" className="btn btn-outline mt-8">View All 25 FAQs</Link>
           </div>
           <div className="lg:col-span-8"><Faq items={homeFaqs} /></div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="section bg-white">
+        <div className="container-site grid gap-14 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <SectionHeading eyebrow="Testimonials" title="Our Clients Say It Best." sub="Enterprise teams across warehouse, facilities and construction trust Holard every day." />
+            <Link href="/testimonials" className="btn btn-outline mt-8">All Testimonials <ArrowRight className="h-5 w-5" aria-hidden /></Link>
+          </div>
+          <div className="lg:col-span-8"><TestimonialSlider count={6} /></div>
+        </div>
+      </section>
+
+      <section aria-label="Client trust" className="border-y border-line bg-white py-5">
+        <div className="container-site text-center font-heading text-lg font-bold text-navy sm:text-xl">
+          Trusted by 50+ Clients across UAE
+        </div>
+      </section>
+
+      <section aria-labelledby="certifications-title" className="section bg-mist">
+        <div className="container-site">
+          <div className="text-center">
+            <p className="eyebrow">Quality & Compliance</p>
+            <h2 id="certifications-title" className="h2 mt-3 text-navy">Our Certifications</h2>
+          </div>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {[
+              ["ISO 9001:2015", "Quality Management System"],
+              ["ISO 45001:2018", "Occupational Health & Safety Management System"],
+              ["ISO 14001:2015", "Environmental Management System"],
+            ].map(([standard, title]) => (
+              <article key={standard} className="flex min-h-40 items-start gap-4 rounded-2xl border border-line bg-white p-6 shadow-sm sm:p-8">
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-orange/10 text-orange"><BadgeCheck className="h-7 w-7" aria-hidden /></span>
+                <div><h3 className="font-heading text-xl font-extrabold text-navy">{standard}</h3><p className="mt-2 text-sm leading-relaxed text-muted">{title}</p></div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

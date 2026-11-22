@@ -59,6 +59,7 @@ const footerIndustryLabels: Record<string, string> = {
 export function Footer() {
   const col = "font-heading text-sm font-bold uppercase tracking-[0.16em] text-white";
   const link = "text-white/70 transition hover:text-orange";
+  const whatsappHref = site.whatsappHref ?? (site.whatsappNumber ? `https://wa.me/${site.whatsappNumber.replace(/\D/g, "")}` : null);
   return (
     <footer className="border-t-4 border-orange bg-navy text-white">
       <div className="container-site grid gap-12 py-16 lg:grid-cols-12 lg:gap-10 lg:py-20">
@@ -71,7 +72,7 @@ export function Footer() {
             <Social href={site.social.facebook} label="Facebook" d={icons.facebook} hoverClass="hover:bg-[#1877F2]" />
             <Social href={site.social.instagram} label="Instagram" d={icons.instagram} hoverClass="hover:bg-[#E1306C]" />
             <Social href={site.social.tiktok} label="TikTok" d={icons.tiktok} hoverClass="hover:bg-[#111111]" />
-            <WhatsAppSocial href={site.whatsappHref} />
+            <WhatsAppSocial href={whatsappHref} />
           </div>
         </div>
         <div className="grid gap-10 sm:grid-cols-4 lg:col-span-6">
@@ -108,7 +109,7 @@ export function Footer() {
           <h3 className={col}>Get in touch</h3>
           <ul className="mt-5 space-y-4 text-white/80">
             {site.phone && <li className="flex gap-3"><Phone className="mt-1 h-5 w-5 shrink-0 text-orange" aria-hidden /><a href={site.phoneHref ?? `tel:${site.phone}`} className="hover:text-orange">{site.phone}</a></li>}
-            {site.whatsappHref && <li className="flex gap-3"><MessageCircle className="mt-1 h-5 w-5 shrink-0 text-orange" aria-hidden /><a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="hover:text-orange">WhatsApp</a></li>}
+            {whatsappHref && <li className="flex gap-3"><MessageCircle className="mt-1 h-5 w-5 shrink-0 text-orange" aria-hidden /><a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="hover:text-orange">WhatsApp{site.whatsappNumber ? ` · ${site.whatsappNumber}` : ""}</a></li>}
             <li className="flex gap-3"><Mail className="mt-1 h-5 w-5 shrink-0 text-orange" aria-hidden /><a href={`mailto:${site.email}`} className="hover:text-orange">{site.email}</a></li>
             <li className="flex gap-3"><MapPin className="mt-1 h-5 w-5 shrink-0 text-orange" aria-hidden />{site.address}</li>
             <li className="flex gap-3"><Clock className="mt-1 h-5 w-5 shrink-0 text-orange" aria-hidden />{site.hours}</li>
