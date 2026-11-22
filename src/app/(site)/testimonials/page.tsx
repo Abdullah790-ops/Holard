@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { ExternalLink, Quote } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -8,7 +7,7 @@ import { Stars } from "@/components/Stars";
 import { LeadForm } from "@/components/LeadForm";
 import { CtaBanner } from "@/components/CtaBanner";
 import { and, desc, eq } from "drizzle-orm";
-import { clients, workerTestimonials } from "@/lib/site";
+import { clients } from "@/lib/site";
 import { getDb, schema } from "@/db";
 
 export const metadata: Metadata = {
@@ -38,24 +37,6 @@ export default async function Testimonials() {
                   <ClientLogo name={c.name} tone={i === 0 ? "dark" : "light"} className="h-16 w-28" />
                   <div><p className="font-heading font-bold">{c.name}</p><p className={`text-sm ${i === 0 ? "text-white/65" : "text-muted"}`}>{c.role}</p></div>
                 </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section bg-mist">
-        <div className="container-site">
-          <SectionHeading eyebrow="Workers" title="Our People." />
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {workerTestimonials.map((w) => (
-              <figure key={w.name} className="rounded-2xl bg-white p-8">
-                <div className="relative mb-4 h-20 w-20 overflow-hidden rounded-full ring-2 ring-orange/20">
-                  <Image src={w.photo} alt={`${w.name}, ${w.role}`} fill sizes="80px" quality={95} className="object-cover" />
-                </div>
-                <Stars />
-                <blockquote className="mt-4 text-lg">“{w.quote}”</blockquote>
-                <figcaption className="mt-5"><p className="font-heading font-bold text-navy">{w.name}</p><p className="text-sm text-muted">{w.role}</p></figcaption>
               </figure>
             ))}
           </div>

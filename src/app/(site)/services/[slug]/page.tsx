@@ -46,10 +46,10 @@ function splitParagraphs(text: string) {
 const cardIcons = ["FileCheck2", "Users", "CalendarCheck", "ShieldCheck", "WalletCards", "BadgeCheck"];
 const whyIcons = [BadgeCheck, Clock3, ShieldCheck, CheckCircle2];
 const manpowerRates = [
-  { role: "General / Warehouse Helper", daily: "135", monthly: "3,500" },
-  { role: "Cleaner", daily: "OK to request", monthly: "OK to request" },
-  { role: "Driver (Light Vehicle)", daily: "OK to request", monthly: "OK to request" },
-  { role: "Technician", daily: "OK to request", monthly: "OK to request" },
+  { role: "General / Warehouse Helper", daily: "On request", monthly: "On request" },
+  { role: "Cleaner", daily: "On request", monthly: "On request" },
+  { role: "Driver (Light Vehicle)", daily: "On request", monthly: "On request" },
+  { role: "Technician", daily: "On request", monthly: "On request" },
 ];
 
 function industryPresentation(label: string) {
@@ -78,14 +78,15 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const ctaDescription = ctaText.includes("?") ? ctaText.slice(ctaText.indexOf("?") + 1).trim() : "Share your requirement and our team will follow up.";
   const primaryCta = content.buttons[0] ?? "Request Staff";
   const primaryHref = slug === "hr-consulting" ? "/book-consultation" : "/contact#hire";
+  const whatsappHref = site.whatsappHref ?? (site.whatsappNumber ? `https://wa.me/${site.whatsappNumber.replace(/\D/g, "")}` : null);
 
   return (
     <>
       <PageHero image={service.image} eyebrow="Workforce Services" title={content.title} sub={content.subtitle} crumbs={[{ label: "Services", href: "/services" }, { label: content.title }]}>
         <Link href={primaryHref} className="btn btn-primary">{primaryCta}<ArrowRight className="h-5 w-5" aria-hidden /></Link>
         {isRecruitment && <Link href="/candidates#apply" className="btn btn-outline-light">Upload Your CV</Link>}
-        {!isRecruitment && content.buttons[1]?.toLowerCase().includes("whatsapp") && site.whatsappHref && (
-          <a href={site.whatsappHref} target="_blank" rel="noreferrer" className="btn btn-outline-light">Talk on WhatsApp</a>
+        {!isRecruitment && content.buttons[1]?.toLowerCase().includes("whatsapp") && whatsappHref && (
+          <a href={whatsappHref} target="_blank" rel="noreferrer" className="btn btn-outline-light">Talk on WhatsApp</a>
         )}
       </PageHero>
 
@@ -208,7 +209,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
             <Link href={primaryHref} className="btn btn-primary">{primaryCta}<ArrowRight className="h-5 w-5" aria-hidden /></Link>
             {isRecruitment && <Link href="/candidates#apply" className="btn btn-outline-light">Upload Your CV</Link>}
-            {!isRecruitment && site.whatsappHref && <a href={site.whatsappHref} target="_blank" rel="noreferrer" className="btn btn-outline-light">WhatsApp Us</a>}
+            {!isRecruitment && whatsappHref && <a href={whatsappHref} target="_blank" rel="noreferrer" className="btn btn-outline-light">WhatsApp Us</a>}
           </div>
         </div>
       </section>

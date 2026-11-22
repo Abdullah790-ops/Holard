@@ -18,7 +18,7 @@ export const site = {
   email: "info@holardhr.com",
   phone: null as string | null, // TODO: office number (not the director's mobile)
   phoneHref: null as string | null,
-  whatsappNumber: null as string | null, // TODO: approved WhatsApp number
+  whatsappNumber: "+971 58 233 1476",
   whatsappHref: null as string | null, // TODO: approved company WhatsApp link
   address: "Salim Al Mazrouye, Dubai, UAE",
   hours: "Mon – Sat, 9 AM – 6 PM",
@@ -26,7 +26,7 @@ export const site = {
     linkedin: null as string | null,
     instagram: "https://www.instagram.com/holardhrconsulting?avpt=M3Jjd2diMWd3d3I4",
     facebook: "https://www.facebook.com/share/19zAo6ESGj/?mibextid=wwXIfr",
-    tiktok: null as string | null,
+    tiktok: "https://www.tiktok.com/@holardhr?_r=1&_t=ZS-9Bcj5fGc4Ib",
   },
 };
 
@@ -137,27 +137,6 @@ export const clients: Client[] = [
     supplies: "Large candidate pool collaboration",
     quote: "Professional collaboration, large pool of candidates.",
     role: "Account Manager",
-  },
-];
-
-export const workerTestimonials = [
-  {
-    name: "Samuel O.",
-    role: "Warehouse Helper · Kenya",
-    photo: "/images/face-worker-1.jpg",
-    quote: "Holard paid salary on time, visa handled. I sent money home from my first month.",
-  },
-  {
-    name: "Ibrahim K.",
-    role: "Driver · Ghana",
-    photo: "/images/face-worker-2.jpg",
-    quote: "Accommodation and transport were ready when I landed. The supervisor answers any time I call.",
-  },
-  {
-    name: "Joseph M.",
-    role: "Cleaner · Uganda",
-    photo: "/images/face-worker-3.jpg",
-    quote: "Medical, visa and Emirates ID all done by Holard. I just focus on my work.",
   },
 ];
 
